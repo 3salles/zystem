@@ -1,12 +1,13 @@
 import * as React from 'react'
 import { Box } from '@chakra-ui/react'
+import { AppLayout } from '../layouts/AppLayout'
 
-import { Sidebar } from '../components/Sidebar'
-
-export function Home() {
+export const Home = () => {
   return (
-    <Box>
-      <Sidebar />
-    </Box>
+    <AppLayout>
+      <Box display={'flex'} justifyContent={'flex-start'}>
+        Resgate
+      </Box>
+    </AppLayout>
   )
 }
