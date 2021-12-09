@@ -11,6 +11,7 @@ export const theme = extendTheme({
     borders: {
       200: "#F1BE65",
       300: "#EE3132",
+      400: '#AEAD47',
       700: "#25B8D5",
     }
   },
