@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { Box, CloseButton, Flex, BoxProps, Image } from '@chakra-ui/react'
 import { FiHome } from 'react-icons/fi'
 import { GiCampfire } from 'react-icons/gi'
@@ -12,29 +13,38 @@ import Logo from '../../assets/logo.png'
 interface LinkItemProps {
   name: string
   icon: IconType
+  link: string
 }
 const LinkItems: Array<LinkItemProps> = [
-  { name: 'Início', icon: FiHome },
-  { name: 'Resgatados', icon: ImUsers },
-  { name: 'Acampamentos', icon: GiCampfire },
-  { name: 'Atividades', icon: HiOutlineClipboardList },
+  { name: 'Início', icon: FiHome, link: '/' },
+  { name: 'Resgatados', icon: ImUsers, link: '/rescued' },
+  { name: 'Acampamentos', icon: GiCampfire, link: '/camps' },
+  { name: 'Atividades', icon: HiOutlineClipboardList, link: '/activities' },
 ]
 
-interface SidebarProps extends BoxProps {
+interface SidebarContentProps extends BoxProps {
   onClose: () => void
 }
 
-export const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+export const SidebarContent = ({ onClose, ...rest }: SidebarContentProps) => {
+  const location = useLocation()
+
   return (
     <Box
       borderRight="1px"
-      borderRightColor={'borders.700'}
+      borderRightColor={'borders.400'}
       w={{ base: 'full', md: 60 }}
       pos="fixed"
       h="full"
       {...rest}
     >
-      <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
+      <Flex
+        h="20"
+        alignItems="center"
+        mx="8"
+        justifyContent="space-between"
+        mb="10"
+      >
         <Image src={Logo} alt="Zystem" />
         <CloseButton
           display={{ base: 'flex', md: 'none' }}
@@ -42,9 +52,14 @@ export const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
           color={'brand.500'}
         />
       </Flex>
-      {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
-          {link.name}
+      {LinkItems.map((option) => (
+        <NavItem
+          key={option.name}
+          icon={option.icon}
+          link={option.link}
+          isActive={option.link === location.pathname}
+        >
+          {option.name}
         </NavItem>
       ))}
     </Box>
