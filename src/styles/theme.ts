@@ -15,4 +15,16 @@ export const theme = extendTheme({
       700: "#25B8D5",
     }
   },
+  fonts: {
+    heading: 'Raleway',
+    body: 'Open Sans',
+  },
+  styles: {
+    global: {
+      body: {
+        bg: 'brand.900',
+        color: 'brand.100',
+      },
+    },
+  },
 })

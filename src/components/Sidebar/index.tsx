@@ -7,7 +7,7 @@ import { MobileNav } from './MobileNav'
 export function Sidebar() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
-    <Box as="aside" role="navigation">
+    <Box minH="100vh">
       <SidebarContent
         onClose={() => onClose}
         display={{ base: 'none', md: 'block' }}
