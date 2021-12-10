@@ -13,6 +13,7 @@ import {
 } from '@chakra-ui/react'
 import { AppLayout } from '../../layouts/AppLayout'
 import { Card } from '../../components/Card'
+import { cardContent } from '../../utils/cardsContent'
 
 export const Home = () => {
   return (
@@ -46,9 +47,9 @@ export const Home = () => {
           </Text>
         </Container>
         <Stack direction={['column', 'row']} spacing={4} mt="8">
-          <Card />
-          <Card />
-          <Card />
+          {cardContent.map((content, index) => (
+            <Card key={index} card={content} />
+          ))}
         </Stack>
       </Box>
     </AppLayout>

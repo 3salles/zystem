@@ -1,31 +1,36 @@
 import React from 'react'
 import { Box, Button, Center, Image } from '@chakra-ui/react'
-import Camp from '../../assets/camp.webp'
 import { useNavigate } from 'react-router-dom'
+import { CardContent } from '../../models'
 
-export const Card = () => {
+interface CardProps {
+  card: CardContent
+}
+
+export const Card = ({ card }: CardProps) => {
   const navigate = useNavigate()
 
   const handleOnClick = () => {
-    navigate('/camps')
+    navigate(`${card.route}`)
   }
+
   return (
     <Box
       maxW="sm"
       borderWidth="1px"
-      borderColor={'borders.700'}
+      borderColor={card.color}
       borderRadius="lg"
       overflow="hidden"
     >
-      <Image src={Camp} alt="Acampamento" />
+      <Image src={card.img} alt={card.alt} w={400} h={250} />
       <Center p="2">
         <Button
-          aria-label="Acessar acampamentos"
+          aria-label={card.ariaLabel}
           size={'md'}
-          bg="borders.700"
+          bg={card.color}
           onClick={handleOnClick}
         >
-          ACAMPAMENTOS
+          {card.label}
         </Button>
       </Center>
     </Box>
