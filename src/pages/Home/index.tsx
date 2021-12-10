@@ -22,7 +22,7 @@ export const Home = () => {
         <Container>
           <Text fontSize="4xl" mb="2">
             Refugiados:
-            <Text ml="2" as="span" fontFamily={'VT323'} color={'borders.400'}>
+            <Text ml="2" as="span" fontFamily={'VT323'} color={'borders.200'}>
               289
             </Text>
           </Text>
@@ -33,18 +33,32 @@ export const Home = () => {
             colorScheme={'red'}
             bg={'borders.400'}
           />
-          <Text mt="1" fontSize={'xl'}>
-            Infectados:
-            <Text
-              as="span"
-              ml="2"
-              fontFamily={'VT323'}
-              color="borders.300"
-              fontSize={'3xl'}
-            >
-              30%
+          <Flex justify={'space-between'}>
+            <Text mt="1" fontSize={'xl'}>
+              Infectados:
+              <Text
+                as="span"
+                ml="2"
+                fontFamily={'VT323'}
+                color="borders.300"
+                fontSize={'3xl'}
+              >
+                30%
+              </Text>
             </Text>
-          </Text>
+            <Text mt="1" fontSize={'xl'}>
+              Saudáveis:
+              <Text
+                as="span"
+                ml="2"
+                fontFamily={'VT323'}
+                color="borders.400"
+                fontSize={'3xl'}
+              >
+                70%
+              </Text>
+            </Text>
+          </Flex>
         </Container>
         <Stack direction={['column', 'row']} spacing={4} mt="8">
           {cardContent.map((content, index) => (
