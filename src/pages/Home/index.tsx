@@ -5,18 +5,19 @@ import {
   Container,
   Flex,
   Heading,
+  HStack,
   Image,
   Progress,
+  Stack,
   Text,
 } from '@chakra-ui/react'
 import { AppLayout } from '../../layouts/AppLayout'
-
-import Background from '../../assets/background.jpeg'
+import { Card } from '../../components/Card'
 
 export const Home = () => {
   return (
     <AppLayout>
-      <Box as="section" color="white" w="100%" p="8">
+      <Box ml={240} as="section" color="white" w="100%" p="8">
         <Container>
           <Text fontSize="4xl" mb="2">
             Refugiados:
@@ -44,6 +45,11 @@ export const Home = () => {
             </Text>
           </Text>
         </Container>
+        <Stack direction={['column', 'row']} spacing={4} mt="8">
+          <Card />
+          <Card />
+          <Card />
+        </Stack>
       </Box>
     </AppLayout>
   )
