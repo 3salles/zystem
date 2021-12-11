@@ -69,7 +69,12 @@ export const RescuedTable = ({ data }: RescuedTableProps) => {
           </Tr>
         ))}
       </Tbody>
-      <DrawerForm isOpen={isOpen} onClose={onClose} />
+      <DrawerForm
+        isOpen={isOpen}
+        onClose={onClose}
+        typeForm="rescued"
+        title="Novo resgatado"
+      />
     </>
   )
 }

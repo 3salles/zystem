@@ -65,7 +65,12 @@ export const CampsTable = ({ data }: ListTableProps) => {
           </Tr>
         ))}
       </Tbody>
-      <DrawerForm isOpen={isOpen} onClose={onClose} />
+      <DrawerForm
+        isOpen={isOpen}
+        onClose={onClose}
+        typeForm="camp"
+        title="Novo acampamento"
+      />
     </>
   )
 }
