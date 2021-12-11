@@ -1,29 +1,31 @@
 [
   {
-    "id" : 0,
+    "id": 0,
     "name": "Acampamento Meio Sangue",
     "capacity": 100,
     "occupied": 60,
-    "campers": [{
-      "id": 0,
-      "name": "Adria Hans",
-      "age": 24,
-      "blood": "B+",
-      "skills": "Cozinhar, professora",
-      "injured": false,
-      "healthStatus": "healthy",
-      "invalid": false,
-      "observation": "",
-      "camp": "Acampamento Meio Sangue",
-      "activity": "",
-      "campColor": "yellow"
-    }],
+    "campers": [
+      {
+        "id": 0,
+        "name": "Adria Hans",
+        "age": 24,
+        "blood": "B+",
+        "skills": "Cozinhar, professora",
+        "injured": false,
+        "healthStatus": "healthy",
+        "invalid": false,
+        "observation": "",
+        "camp": "Acampamento Meio Sangue",
+        "activity": "",
+        "campColor": "yellow"
+      }
+    ],
     "activities": [{}],
     "color": "yellow",
     "totalInfected": 20
   },
   {
-    "id" : 1,
+    "id": 1,
     "name": "Acampamento Jupiter",
     "capacity": 150,
     "occupied": 150,
@@ -62,7 +64,7 @@
     "totalInfected": 80
   },
   {
-    "id" : 2,
+    "id": 2,
     "name": "Acampamento Jackson",
     "capacity": 150,
     "occupied": 100,
