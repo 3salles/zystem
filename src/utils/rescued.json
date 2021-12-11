@@ -1,0 +1,72 @@
+[
+  {
+    "id": 0,
+    "name": "Adria Hans",
+    "age": 24,
+    "blood": "B+",
+    "skills": "Cozinhar, professora",
+    "injured": false,
+    "healthStatus": "healthy",
+    "invalid": false,
+    "observation": "",
+    "camp": "Acampamento Meio Sangue",
+    "activity": "",
+    "campColor": "yellow"
+  },
+  {
+    "id": 1,
+    "name": "Josh Williams",
+    "age": 46,
+    "blood": "A+",
+    "skills": "Eletricista",
+    "injured": false,
+    "healthStatus": "healthy",
+    "invalid": true,
+    "observation": "Devido a um acidente, teve a perna esquerda amputada. Por ser eletricista, pode ensinar campistas sua profissão.",
+    "camp": "Acampamento Jupiter",
+    "activity": "Manutenção",
+    "campColor": "blue"
+  },
+  {
+    "id": 2,
+    "name": "Luna Williams",
+    "age": 16,
+    "blood": "A+",
+    "skills": "Corredora",
+    "injured": false,
+    "healthStatus": "healthy",
+    "invalid": false,
+    "observation": "Filha de Josh Williams, muito boa em se esconder e coletar alimentos.",
+    "camp": "Acampamento Jupiter",
+    "activity": "Campo externo",
+    "campColor": "blue"
+  },
+  {
+    "id": 3,
+    "name": "Joseph Juan",
+    "age": 36,
+    "blood": "O+",
+    "skills": "Professor",
+    "injured": false,
+    "healthStatus": "infected",
+    "invalid": true,
+    "observation": "Chegou ao acampamento com uma mordida na mão. Para evitar a transformação, teve sua mão amputada. Encontra-se na ala de observação",
+    "camp": "Acampamento Jackson",
+    "activity": "",
+    "campColor": "pink"
+  },
+  {
+    "id": 4,
+    "name": "Diana Loston",
+    "age": 27,
+    "blood": "AB+",
+    "skills": "Atiradora, lutadora, atleta",
+    "injured": false,
+    "healthStatus": "healthy",
+    "invalid": false,
+    "observation": "Passou por treinamento militar no ensino médio e antes de tudo isto. Muito bom ter ela na busca de mantimentos",
+    "camp": "Acampamento Jackson",
+    "activity": "Campo externo",
+    "campColor": "pink"
+  }
+]
