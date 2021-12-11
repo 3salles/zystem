@@ -13,10 +13,11 @@ import {
   useDisclosure,
 } from '@chakra-ui/react'
 
-import { MdDelete, MdModeEdit } from 'react-icons/md'
+import { MdModeEdit } from 'react-icons/md'
 import { Rescued } from '../../models'
 import { formatHealth } from '../../helpers/formatHealth'
 import { DrawerForm } from '../DrawerForm'
+import { AlertModal } from '../AlertModal'
 
 export interface RescuedCard extends Rescued {
   campColor: string
@@ -69,16 +70,7 @@ export const ListTable = ({ data }: ListTableProps) => {
                     fontSize={'2xl'}
                     onClick={onOpen}
                   />
-                  <IconButton
-                    variant={'outline'}
-                    aria-label="Excluir"
-                    border={0}
-                    color="white"
-                    icon={<MdDelete />}
-                    _hover={{ bg: 'brightRed.300', color: 'white' }}
-                    fontSize={'2xl'}
-                    ml="8"
-                  />
+                  <AlertModal />
                 </Flex>
               </Td>
             </Tr>
