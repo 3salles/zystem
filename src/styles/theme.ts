@@ -8,7 +8,6 @@ export const theme = extendTheme({
     },
     borders: {
       200: '#F1BE65',
-      300: '#EE3132',
       700: '#25B8D5',
     },
     violet: {

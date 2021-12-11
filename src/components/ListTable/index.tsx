@@ -3,62 +3,75 @@ import React from 'react'
 import { useTable, usePagination } from 'react-table'
 import {
   Table,
-  Thead,
   Tbody,
   Tr,
-  Th,
   Td,
   Flex,
   IconButton,
   Tag,
   Badge,
 } from '@chakra-ui/react'
-import { GrEdit } from 'react-icons/gr'
-import { MdDelete } from 'react-icons/md'
 
-export const ListTable = () => {
+import { MdDelete, MdModeEdit } from 'react-icons/md'
+import { Rescued } from '../../models'
+import { formatHealth } from '../../helpers/formatHealth'
+
+export interface RescuedCard extends Rescued {
+  campColor: string
+}
+
+interface ListTableProps {
+  data: RescuedCard[]
+}
+
+export const ListTable = ({ data }: ListTableProps) => {
   return (
-    <Table variant="striped" colorScheme={'violet'}>
-      {/* <Thead>
-        <Tr>
-          <Th>To convert</Th>
-          <Th>into</Th>
-          <Th></Th>
-        </Tr>
-      </Thead> */}
+    <Table variant="simple" colorScheme={'violet'}>
       <Tbody>
-        <Tr>
-          <Td>Luna Williams</Td>
-          <Td>16 anos</Td>
-          <Td>
-            <Badge>Acampamento</Badge>
-          </Td>
-          <Td>
-            <Tag bg="" color="white">
-              Saudável
-            </Tag>
-          </Td>
-          <Td>
-            <Flex alignItems={'flex-end'} w="full">
-              <IconButton
-                variant={'outline'}
-                aria-label="Editar"
-                icon={<GrEdit />}
-              />
-              <IconButton aria-label="Excluir" icon={<MdDelete />} ml="8" />
-            </Flex>
-          </Td>
-        </Tr>
-        <Tr>
-          <Td>feet</Td>
-          <Td>centimetres (cm)</Td>
-          <Td isNumeric>30.48</Td>
-        </Tr>
-        <Tr>
-          <Td>yards</Td>
-          <Td>metres (m)</Td>
-          <Td isNumeric>0.91444</Td>
-        </Tr>
+        {data?.map((item) => (
+          <Tr key={item?.id}>
+            <Td>{item?.name}</Td>
+            <Td>{item?.age} anos</Td>
+            <Td>
+              <Tag variant="unstyled" outline={`1px solid ${item?.campColor}`}>
+                {item?.camp}
+              </Tag>
+            </Td>
+            <Td>
+              <Badge
+                colorScheme={
+                  item?.healthStatus === 'healthy' ? 'yellowGreen' : 'brightRed'
+                }
+                color="white"
+              >
+                {formatHealth(item?.healthStatus)}
+              </Badge>
+            </Td>
+            <Td>
+              <Flex justify={'center'}>
+                <IconButton
+                  variant={'outline'}
+                  aria-label="Editar"
+                  border={0}
+                  color="white"
+                  icon={<MdModeEdit />}
+                  _hover={{ bg: 'blue', color: 'white' }}
+                  fontSize={'2xl'}
+                />
+                <IconButton
+                  variant={'outline'}
+                  aria-label="Excluir"
+                  border={0}
+                  color="white"
+                  icon={<MdDelete />}
+                  _hover={{ bg: 'brightRed.300', color: 'white' }}
+                  fontSize={'2xl'}
+                  ml="8"
+                />
+              </Flex>
+            </Td>
+          </Tr>
+        ))}
       </Tbody>
     </Table>
   )

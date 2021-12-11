@@ -3,7 +3,7 @@ import React from 'react'
 import { formatHealth } from '../../helpers/formatHealth'
 import { Rescued } from '../../models'
 
-interface RescuedCard extends Rescued {
+export interface RescuedCard extends Rescued {
   campColor: string
 }
 
