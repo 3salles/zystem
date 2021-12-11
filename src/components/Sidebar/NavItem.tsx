@@ -26,9 +26,9 @@ export const NavItem = ({
         color="white"
         role="group"
         cursor="pointer"
-        bg={isActive ? 'brand.500' : 'none'}
+        bg={isActive ? 'violet.500' : 'none'}
         _hover={{
-          bg: 'brand.500',
+          bg: 'violet.500',
           color: 'white',
         }}
         {...rest}

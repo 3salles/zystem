@@ -25,7 +25,7 @@ export const Home = () => {
   const data = rescued as CustomRescued[]
   return (
     <AppLayout>
-      <Box as="section" color="white" w="100%" p="8" px="10" maxW={1480}>
+      <Box as="section" w="100%" p="4" maxW={1480}>
         <Container>
           <Heading as="h1" mb="2">
             Refugiados:

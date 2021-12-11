@@ -13,7 +13,7 @@ interface RescuedCardProps {
 
 export const RescuedCard = ({ rescued }: RescuedCardProps) => {
   return (
-    <Box border="1px" borderColor="brand.500" borderRadius="md" p="4" w="100%">
+    <Box border="1px" borderColor="violet.500" borderRadius="md" p="4" w="100%">
       <Flex w="100%" justify="space-between">
         <Text>{rescued?.name}</Text>
         <Text>{rescued?.age} anos</Text>

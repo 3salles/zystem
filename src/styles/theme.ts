@@ -3,9 +3,7 @@ import { extendTheme } from '@chakra-ui/react'
 export const theme = extendTheme({
   colors: {
     brand: {
-      100: '#FFFFFF',
-      300: '#C31011;',
-      500: '#800080',
+      300: '#C31011',
       900: '#0C1015',
     },
     borders: {
@@ -14,6 +12,18 @@ export const theme = extendTheme({
       400: '#AEAD47',
       700: '#25B8D5',
     },
+    violet: {
+      50: '#E200E2',
+      100: '#CE00CE',
+      200: '#BA00BA',
+      300: '#A700A7',
+      400: '#930093',
+      500: '#800080',
+      600: '#6C006C',
+      700: '#580058',
+      800: '#450045',
+      900: '#310031',
+    }
   },
   fonts: {
     heading: 'Raleway',
@@ -23,7 +33,7 @@ export const theme = extendTheme({
     global: {
       body: {
         bg: 'brand.900',
-        color: 'brand.100',
+        color: 'white',
       },
     },
   },
