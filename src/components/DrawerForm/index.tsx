@@ -11,6 +11,7 @@ import {
   Button,
 } from '@chakra-ui/react'
 import { RescuedForm } from './RescuedForm'
+import { CampForm } from './CampForm'
 
 type DrawersForm = 'camp' | 'activity' | 'rescued'
 interface DrawerFormProps {
@@ -24,6 +25,8 @@ const formType = (type: DrawersForm) => {
   switch (type) {
     case 'rescued':
       return <RescuedForm />
+    case 'camp':
+      return <CampForm />
     default:
       return <></>
   }
