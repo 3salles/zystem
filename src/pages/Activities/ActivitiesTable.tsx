@@ -8,20 +8,18 @@ import {
   Flex,
   IconButton,
   useDisclosure,
-  Box,
-  Badge,
 } from '@chakra-ui/react'
 
 import { MdModeEdit } from 'react-icons/md'
-import { Camp } from '../../models'
+import { Activity } from '../../models'
 import { DrawerForm } from '../../components/DrawerForm'
 import { AlertModal } from '../../components/AlertModal'
 
-interface CampsTableProps {
-  data: Camp[]
+interface ActivitiesTableProps {
+  data: Activity[]
 }
 
-export const CampsTable = ({ data }: CampsTableProps) => {
+export const ActivitiesTable = ({ data }: ActivitiesTableProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
@@ -29,23 +27,8 @@ export const CampsTable = ({ data }: CampsTableProps) => {
       <Tbody>
         {data?.map((item) => (
           <Tr key={item?.id}>
-            <Td>
-              <Box bg={item?.color} h={4} />
-            </Td>
             <Td>{item?.name}</Td>
-            <Td> máx. {item?.capacity} pessoas</Td>
-            <Td>
-              {item?.occupied === item?.capacity ? (
-                <Badge colorScheme={'brightRed'} color="white">
-                  Lotado
-                </Badge>
-              ) : (
-                item?.occupied + ' pessoas'
-              )}{' '}
-            </Td>
-            <Td fontWeight={'bold'} color="borders.200">
-              {item?.totalInfected} infectados
-            </Td>
+            <Td> {item?.description}</Td>
 
             <Td>
               <Flex justify={'center'}>
