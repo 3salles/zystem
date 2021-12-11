@@ -10,11 +10,13 @@ import {
   IconButton,
   Tag,
   Badge,
+  useDisclosure,
 } from '@chakra-ui/react'
 
 import { MdDelete, MdModeEdit } from 'react-icons/md'
 import { Rescued } from '../../models'
 import { formatHealth } from '../../helpers/formatHealth'
+import { DrawerForm } from '../DrawerForm'
 
 export interface RescuedCard extends Rescued {
   campColor: string
@@ -25,54 +27,65 @@ interface ListTableProps {
 }
 
 export const ListTable = ({ data }: ListTableProps) => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
   return (
-    <Table variant="simple" colorScheme={'violet'}>
-      <Tbody>
-        {data?.map((item) => (
-          <Tr key={item?.id}>
-            <Td>{item?.name}</Td>
-            <Td>{item?.age} anos</Td>
-            <Td>
-              <Tag variant="unstyled" outline={`1px solid ${item?.campColor}`}>
-                {item?.camp}
-              </Tag>
-            </Td>
-            <Td>
-              <Badge
-                colorScheme={
-                  item?.healthStatus === 'healthy' ? 'yellowGreen' : 'brightRed'
-                }
-                color="white"
-              >
-                {formatHealth(item?.healthStatus)}
-              </Badge>
-            </Td>
-            <Td>
-              <Flex justify={'center'}>
-                <IconButton
-                  variant={'outline'}
-                  aria-label="Editar"
-                  border={0}
+    <>
+      <Table variant="simple" colorScheme={'violet'}>
+        <Tbody>
+          {data?.map((item) => (
+            <Tr key={item?.id}>
+              <Td>{item?.name}</Td>
+              <Td>{item?.age} anos</Td>
+              <Td>
+                <Tag
+                  variant="unstyled"
+                  outline={`1px solid ${item?.campColor}`}
+                >
+                  {item?.camp}
+                </Tag>
+              </Td>
+              <Td>
+                <Badge
+                  colorScheme={
+                    item?.healthStatus === 'healthy'
+                      ? 'yellowGreen'
+                      : 'brightRed'
+                  }
                   color="white"
-                  icon={<MdModeEdit />}
-                  _hover={{ bg: 'blue', color: 'white' }}
-                  fontSize={'2xl'}
-                />
-                <IconButton
-                  variant={'outline'}
-                  aria-label="Excluir"
-                  border={0}
-                  color="white"
-                  icon={<MdDelete />}
-                  _hover={{ bg: 'brightRed.300', color: 'white' }}
-                  fontSize={'2xl'}
-                  ml="8"
-                />
-              </Flex>
-            </Td>
-          </Tr>
-        ))}
-      </Tbody>
-    </Table>
+                >
+                  {formatHealth(item?.healthStatus)}
+                </Badge>
+              </Td>
+              <Td>
+                <Flex justify={'center'}>
+                  <IconButton
+                    variant={'outline'}
+                    aria-label="Editar"
+                    border={0}
+                    color="white"
+                    icon={<MdModeEdit />}
+                    _hover={{ bg: 'blue', color: 'white' }}
+                    fontSize={'2xl'}
+                    onClick={onOpen}
+                  />
+                  <IconButton
+                    variant={'outline'}
+                    aria-label="Excluir"
+                    border={0}
+                    color="white"
+                    icon={<MdDelete />}
+                    _hover={{ bg: 'brightRed.300', color: 'white' }}
+                    fontSize={'2xl'}
+                    ml="8"
+                  />
+                </Flex>
+              </Td>
+            </Tr>
+          ))}
+        </Tbody>
+      </Table>
+      <DrawerForm isOpen={isOpen} onClose={onClose} />
+    </>
   )
 }
