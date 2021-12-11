@@ -1,23 +1,53 @@
 import React from 'react'
 
 import { useTable, usePagination } from 'react-table'
-import { Table, Thead, Tbody, Tfoot, Tr, Th, Td } from '@chakra-ui/react'
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  Flex,
+  IconButton,
+  Tag,
+  Badge,
+} from '@chakra-ui/react'
+import { GrEdit } from 'react-icons/gr'
+import { MdDelete } from 'react-icons/md'
 
 export const ListTable = () => {
   return (
     <Table variant="striped" colorScheme={'violet'}>
-      <Thead>
+      {/* <Thead>
         <Tr>
           <Th>To convert</Th>
           <Th>into</Th>
-          <Th isNumeric>multiply by</Th>
+          <Th></Th>
         </Tr>
-      </Thead>
+      </Thead> */}
       <Tbody>
         <Tr>
-          <Td>inches</Td>
-          <Td>millimetres (mm)</Td>
-          <Td isNumeric>25.4</Td>
+          <Td>Luna Williams</Td>
+          <Td>16 anos</Td>
+          <Td>
+            <Badge>Acampamento</Badge>
+          </Td>
+          <Td>
+            <Tag bg="" color="white">
+              Saudável
+            </Tag>
+          </Td>
+          <Td>
+            <Flex alignItems={'flex-end'} w="full">
+              <IconButton
+                variant={'outline'}
+                aria-label="Editar"
+                icon={<GrEdit />}
+              />
+              <IconButton aria-label="Excluir" icon={<MdDelete />} ml="8" />
+            </Flex>
+          </Td>
         </Tr>
         <Tr>
           <Td>feet</Td>
@@ -30,13 +60,6 @@ export const ListTable = () => {
           <Td isNumeric>0.91444</Td>
         </Tr>
       </Tbody>
-      <Tfoot>
-        <Tr>
-          <Th>To convert</Th>
-          <Th>into</Th>
-          <Th isNumeric>multiply by</Th>
-        </Tr>
-      </Tfoot>
     </Table>
   )
 }

@@ -1,4 +1,4 @@
-import { Box, Flex, Tag, Text } from '@chakra-ui/react'
+import { Badge, Box, Flex, Tag, Text } from '@chakra-ui/react'
 import React from 'react'
 import { formatHealth } from '../../helpers/formatHealth'
 import { Rescued } from '../../models'
@@ -24,14 +24,14 @@ export const RescuedCard = ({ rescued }: RescuedCardProps) => {
         >
           {rescued?.camp}
         </Tag>
-        <Tag
-          bg={
-            rescued?.healthStatus === 'healthy' ? 'borders.400' : 'borders.300'
+        <Badge
+          variant={'subtle'}
+          colorScheme={
+            rescued?.healthStatus === 'healthy' ? 'yellowGreen' : 'red'
           }
-          color="white"
         >
           {formatHealth(rescued?.healthStatus)}
-        </Tag>
+        </Badge>
       </Flex>
     </Box>
   )

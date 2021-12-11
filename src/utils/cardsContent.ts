@@ -26,6 +26,6 @@ export const cardContent: NavigationCardContent[] = [
     route: '/activities',
     ariaLabel: 'Ver atividades',
     label: 'ATIVIDADES',
-    color: 'borders.400',
+    color: 'yellowGreen.100',
   },
 ]
