@@ -1,8 +1,8 @@
-import { NavigationCardContent } from "../models";
+import { NavigationCardContent } from '../models'
 
 import Camp from '../assets/camp.webp'
 import People from '../assets/rescued.jpg'
-import Activities from "../assets/skills.png"
+import Activities from '../assets/skills.png'
 export const cardContent: NavigationCardContent[] = [
   {
     img: Camp,
@@ -10,7 +10,7 @@ export const cardContent: NavigationCardContent[] = [
     route: '/camps',
     ariaLabel: 'Ver acampamento',
     label: 'ACAMPAMENTO',
-    color: 'borders.700'
+    color: 'borders.700',
   },
   {
     img: People,
@@ -18,7 +18,7 @@ export const cardContent: NavigationCardContent[] = [
     route: '/rescued',
     ariaLabel: 'Ver resgatados',
     label: 'RESGATADOS',
-    color: 'borders.200'
+    color: 'borders.200',
   },
   {
     img: Activities,
@@ -26,6 +26,6 @@ export const cardContent: NavigationCardContent[] = [
     route: '/activities',
     ariaLabel: 'Ver atividades',
     label: 'ATIVIDADES',
-    color: 'borders.400'
-  }
-] 
+    color: 'borders.400',
+  },
+]

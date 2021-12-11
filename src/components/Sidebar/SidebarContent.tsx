@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { Box, CloseButton, Flex, BoxProps, Image } from '@chakra-ui/react'
 import { FiHome } from 'react-icons/fi'
 import { GiCampfire } from 'react-icons/gi'

@@ -1,5 +1,5 @@
-import { Activity } from './activity.models';
-import { Rescued } from "./rescued.models";
+import { Activity } from './activity.models'
+import { Rescued } from './rescued.models'
 
 export interface Camp {
   name: string
