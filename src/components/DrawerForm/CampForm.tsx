@@ -7,6 +7,7 @@ import {
   Select,
   FormControl,
 } from '@chakra-ui/react'
+import { ColorPicker } from '../Colorpicker'
 
 export const CampForm = () => {
   return (
@@ -38,7 +39,7 @@ export const CampForm = () => {
           </FormControl>
           <FormControl ml={3}>
             <FormLabel>Cor</FormLabel>
-            <Input placeholder="Digite a cor" />
+            <ColorPicker />
           </FormControl>
         </Flex>
       </Box>
