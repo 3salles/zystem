@@ -27,8 +27,9 @@ export const RescuedCard = ({ rescued }: RescuedCardProps) => {
         <Badge
           variant={'subtle'}
           colorScheme={
-            rescued?.healthStatus === 'healthy' ? 'yellowGreen' : 'red'
+            rescued?.healthStatus === 'healthy' ? 'yellowGreen' : 'brightRed'
           }
+          color="white"
         >
           {formatHealth(rescued?.healthStatus)}
         </Badge>

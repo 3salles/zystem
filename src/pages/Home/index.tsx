@@ -37,7 +37,7 @@ export const Home = () => {
             size={'lg'}
             value={30}
             max={289}
-            colorScheme={'red'}
+            colorScheme={'brightRed'}
             bg={'yellowGreen.100'}
           />
           <Flex justify={'space-between'}>
@@ -47,7 +47,7 @@ export const Home = () => {
                 as="span"
                 ml="2"
                 fontFamily={'VT323'}
-                color="brand.300"
+                color="brightRed.100"
                 fontSize={'3xl'}
               >
                 30%

@@ -9,7 +9,6 @@ export const theme = extendTheme({
     borders: {
       200: '#F1BE65',
       300: '#EE3132',
-      400: '#AEAD47',
       700: '#25B8D5',
     },
     violet: {
@@ -35,6 +34,18 @@ export const theme = extendTheme({
       700: '#5A5A25',
       800: '#4C4C1F',
       900: '#3F3E1A'
+    },
+    brightRed: {
+      50: '#EF4344',
+      100: '#EE3132',
+      200: '#ED1F20',
+      300: '#E51314',
+      400: '#D31112',
+      500: '#C11011',
+      600: '#AF0E0F',
+      700: '#9C0D0E',
+      800: '#8A0B0C',
+      900: '#780A0A'
     }
   },
   fonts: {
