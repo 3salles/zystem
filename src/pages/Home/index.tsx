@@ -4,7 +4,6 @@ import {
   Container,
   Flex,
   Heading,
-  HStack,
   Progress,
   Stack,
   Text,
@@ -15,7 +14,15 @@ import { cardContent } from '../../utils/cardsContent'
 import { NavigationCard } from '../../components/Cards/NavigationCard'
 import { RescuedCard } from '../../components/Cards/RescuedCard'
 
+import rescued from '../../utils/rescued.json'
+import { Rescued } from '../../models'
+
+interface CustomRescued extends Rescued {
+  campColor: string
+}
+
 export const Home = () => {
+  const data = rescued as CustomRescued[]
   return (
     <AppLayout>
       <Box as="section" color="white" w="100%" p="8" px="10" maxW={1480}>
@@ -40,7 +47,7 @@ export const Home = () => {
                 as="span"
                 ml="2"
                 fontFamily={'VT323'}
-                color="borders.300"
+                color="brand.300"
                 fontSize={'3xl'}
               >
                 30%
@@ -70,11 +77,9 @@ export const Home = () => {
             Resgatados recentemente
           </Heading>
           <VStack w="100%" spacing={4}>
-            <RescuedCard />
-            <RescuedCard />
-            <RescuedCard />
-            <RescuedCard />
-            <RescuedCard />
+            {data?.map((rescued) => (
+              <RescuedCard key={rescued.id} rescued={rescued} />
+            ))}
           </VStack>
         </Container>
       </Box>
