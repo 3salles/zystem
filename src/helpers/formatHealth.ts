@@ -3,9 +3,9 @@ import { HealthStatus } from './../models/rescued.models'
 export const formatHealth = (healthStatus: HealthStatus) => {
   switch (healthStatus) {
     case 'healthy':
-      return 'SAUDÁVEL'
+      return 'Saudável'
     case 'infected':
-      return 'INFECTADO'
+      return 'Infectado'
     default:
       return ''
   }

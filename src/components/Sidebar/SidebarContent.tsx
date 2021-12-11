@@ -32,7 +32,7 @@ export const SidebarContent = ({ onClose, ...rest }: SidebarContentProps) => {
   return (
     <Box
       borderRight="1px"
-      borderRightColor={'borders.400'}
+      borderRightColor={'yellowGreen.100'}
       w={{ base: 'full', md: 60 }}
       pos="fixed"
       h="full"

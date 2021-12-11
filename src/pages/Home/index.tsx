@@ -25,7 +25,7 @@ export const Home = () => {
   const data = rescued as CustomRescued[]
   return (
     <AppLayout>
-      <Box as="section" color="white" w="100%" p="8" px="10" maxW={1480}>
+      <Box as="section" w="100%" p="4" maxW={1480}>
         <Container>
           <Heading as="h1" mb="2">
             Refugiados:
@@ -37,8 +37,8 @@ export const Home = () => {
             size={'lg'}
             value={30}
             max={289}
-            colorScheme={'red'}
-            bg={'borders.400'}
+            colorScheme={'brightRed'}
+            bg={'yellowGreen.100'}
           />
           <Flex justify={'space-between'}>
             <Text mt="1" fontSize={'xl'}>
@@ -47,7 +47,7 @@ export const Home = () => {
                 as="span"
                 ml="2"
                 fontFamily={'VT323'}
-                color="brand.300"
+                color="brightRed.100"
                 fontSize={'3xl'}
               >
                 30%
@@ -59,7 +59,7 @@ export const Home = () => {
                 as="span"
                 ml="2"
                 fontFamily={'VT323'}
-                color="borders.400"
+                color="yellowGreen.100"
                 fontSize={'3xl'}
               >
                 70%

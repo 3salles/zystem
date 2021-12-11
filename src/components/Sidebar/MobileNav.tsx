@@ -15,14 +15,14 @@ export const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       height="20"
       alignItems="center"
       borderBottomWidth="1px"
-      borderBottomColor={'borders.400'}
+      borderBottomColor={'yellowGreen.100'}
       justifyContent="flex-start"
       {...rest}
     >
       <IconButton
         variant="outline"
-        borderColor={'borders.400'}
-        color="borders.400"
+        borderColor={'yellowGreen.100'}
+        color="yellowGreen.100"
         onClick={onOpen}
         aria-label="open menu"
         icon={<FiMenu />}
