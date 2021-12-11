@@ -1,9 +1,9 @@
-import { CardContent } from "../models";
+import { NavigationCardContent } from "../models";
 
 import Camp from '../assets/camp.webp'
 import People from '../assets/rescued.jpg'
 import Activities from "../assets/skills.png"
-export const cardContent: CardContent[] = [
+export const cardContent: NavigationCardContent[] = [
   {
     img: Camp,
     alt: 'Acampamento de sobrevivência durante um apocalipse zumbi',

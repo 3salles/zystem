@@ -1,36 +1,36 @@
 import React from 'react'
 import { Box, Button, Center, Image } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
-import { CardContent } from '../../models'
+import { NavigationCardContent } from '../../models'
 
-interface CardProps {
-  card: CardContent
+interface NavigationCardProps {
+  cardContent: NavigationCardContent
 }
 
-export const Card = ({ card }: CardProps) => {
+export const NavigationCard = ({ cardContent }: NavigationCardProps) => {
   const navigate = useNavigate()
 
   const handleOnClick = () => {
-    navigate(`${card.route}`)
+    navigate(`${cardContent.route}`)
   }
 
   return (
     <Box
       maxW="sm"
       borderWidth="1px"
-      borderColor={card.color}
+      borderColor={cardContent.color}
       borderRadius="lg"
       overflow="hidden"
     >
-      <Image src={card.img} alt={card.alt} w={400} h={250} />
+      <Image src={cardContent.img} alt={cardContent.alt} w={400} h={250} />
       <Center p="2">
         <Button
-          aria-label={card.ariaLabel}
+          aria-label={cardContent.ariaLabel}
           size={'md'}
-          bg={card.color}
+          bg={cardContent.color}
           onClick={handleOnClick}
         >
-          {card.label}
+          {cardContent.label}
         </Button>
       </Center>
     </Box>

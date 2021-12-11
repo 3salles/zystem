@@ -1,31 +1,31 @@
 import * as React from 'react'
 import {
   Box,
-  Center,
   Container,
   Flex,
   Heading,
   HStack,
-  Image,
   Progress,
   Stack,
   Text,
+  VStack,
 } from '@chakra-ui/react'
 import { AppLayout } from '../../layouts/AppLayout'
-import { Card } from '../../components/Card'
 import { cardContent } from '../../utils/cardsContent'
+import { NavigationCard } from '../../components/Cards/NavigationCard'
+import { RescuedCard } from '../../components/Cards/RescuedCard'
 
 export const Home = () => {
   return (
     <AppLayout>
-      <Box ml={240} as="section" color="white" w="100%" p="8">
+      <Box as="section" color="white" w="100%" p="8" px="10" maxW={1480}>
         <Container>
-          <Text fontSize="4xl" mb="2">
+          <Heading as="h1" mb="2">
             Refugiados:
             <Text ml="2" as="span" fontFamily={'VT323'} color={'borders.200'}>
               289
             </Text>
-          </Text>
+          </Heading>
           <Progress
             size={'lg'}
             value={30}
@@ -62,9 +62,21 @@ export const Home = () => {
         </Container>
         <Stack direction={['column', 'row']} spacing={4} mt="8">
           {cardContent.map((content, index) => (
-            <Card key={index} card={content} />
+            <NavigationCard key={index} cardContent={content} />
           ))}
         </Stack>
+        <Container w="100%">
+          <Heading as="h2" mt="6" mb="4">
+            Resgatados recentemente
+          </Heading>
+          <VStack w="100%" spacing={4}>
+            <RescuedCard />
+            <RescuedCard />
+            <RescuedCard />
+            <RescuedCard />
+            <RescuedCard />
+          </VStack>
+        </Container>
       </Box>
     </AppLayout>
   )

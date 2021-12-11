@@ -1,4 +1,4 @@
-export interface CardContent {
+export interface NavigationCardContent {
   img: string
   alt: string
   route: string
