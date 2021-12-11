@@ -51,8 +51,8 @@ export const ActivitiesTable = ({ data }: ActivitiesTableProps) => {
       <DrawerForm
         isOpen={isOpen}
         onClose={onClose}
-        typeForm="camp"
-        title="Novo acampamento"
+        typeForm="activity"
+        title="Nova atividade"
       />
     </>
   )
