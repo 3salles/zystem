@@ -2,13 +2,14 @@ import React from 'react'
 
 import { Heading, Box, Flex, Button, IconButton } from '@chakra-ui/react'
 import { FaPlus, FaArrowLeft } from 'react-icons/fa'
-import { DrawersForm } from '../DrawerForm'
+
 import { useForm } from '../../hooks/useForm'
+import { FormsType } from '../../models'
 
 interface HeaderProps {
   title: string
   buttonLabel: string
-  typeForm: DrawersForm
+  typeForm: FormsType
 }
 
 export const Header = ({ title, buttonLabel, typeForm }: HeaderProps) => {

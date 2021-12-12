@@ -5,8 +5,8 @@ import React, {
   useEffect,
   useState,
 } from 'react'
-import { DrawersForm } from '../components/DrawerForm'
-import { Activity, Camp, Person } from '../models'
+
+import { Activity, Camp, FormsType, Person } from '../models'
 import { api } from '../services/api'
 
 type ActivityInput = Omit<Activity, 'id' | 'createdAt'>
@@ -20,7 +20,7 @@ interface FormProviderProps {
 interface FormContextData {
   isDrawerOpen: boolean
   title: string
-  typeForm: DrawersForm
+  typeForm: FormsType
   activities: Activity[]
   camps: Camp[]
   people: Person[]
@@ -28,7 +28,8 @@ interface FormContextData {
   createCamp: (camp: CampInput) => Promise<void>
   createPerson: (person: PersonInput) => Promise<void>
   deleteActivity: (id: number | undefined) => Promise<void>
-  onOpenDrawer: (type: DrawersForm, title: string) => void
+  deletePerson: (id: number | undefined) => Promise<void>
+  onOpenDrawer: (type: FormsType, title: string) => void
   onCloseDrawer: () => void
 }
 
@@ -39,7 +40,7 @@ export const FormProvider = ({ children }: FormProviderProps) => {
   const [camps, setCamps] = useState<Camp[]>([])
   const [people, setPeople] = useState<Person[]>([])
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
-  const [typeForm, setTypeForm] = useState<DrawersForm>('activity')
+  const [typeForm, setTypeForm] = useState<FormsType>('activity')
   const [title, setTitle] = useState('')
 
   useEffect(() => {
@@ -56,7 +57,7 @@ export const FormProvider = ({ children }: FormProviderProps) => {
     api.get('/api/people').then((response) => setPeople(response.data.people))
   }, [])
 
-  const onOpenDrawer = (type: DrawersForm, title: string) => {
+  const onOpenDrawer = (type: FormsType, title: string) => {
     setIsDrawerOpen(true)
     setTypeForm(type)
     setTitle(title)
@@ -99,9 +100,16 @@ export const FormProvider = ({ children }: FormProviderProps) => {
   }
 
   const deleteActivity = async (id: number | undefined) => {
-    await api.delete(`/activities/${id}`).then(() => {
-      const newActivities = activities.filter((activity) => activity.id !== id)
+    await api.delete(`api/activities/${id}`).then(() => {
+      const newActivities = activities.filter((activity) => activity?.id !== id)
       setActivities(newActivities)
+    })
+  }
+
+  const deletePerson = async (id: number | undefined) => {
+    await api.delete(`/api/people/${id}`).then(() => {
+      const newPeople = people.filter((person) => person?.id !== id)
+      setPeople(newPeople)
     })
   }
 
@@ -120,6 +128,7 @@ export const FormProvider = ({ children }: FormProviderProps) => {
         createCamp,
         people,
         createPerson,
+        deletePerson,
       }}
     >
       {children}

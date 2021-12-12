@@ -46,7 +46,7 @@ export const CampsTable = () => {
                   fontSize={'2xl'}
                   onClick={() => onOpenDrawer('camp', 'Editar acampamento')}
                 />
-                <AlertModal id={camp?.id} name={camp?.name} />
+                <AlertModal id={camp?.id} name={camp?.name} typeForm="camp" />
               </Flex>
             </Td>
           </Tr>

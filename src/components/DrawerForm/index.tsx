@@ -13,12 +13,12 @@ import {
 import { RescuedForm } from './RescuedForm'
 import { CampForm } from './CampForm'
 import { ActivityForm } from './ActivityForm'
+import { FormsType } from '../../models'
 
-export type DrawersForm = 'camp' | 'activity' | 'rescued'
 interface DrawerFormProps {
   isOpen: boolean
   onClose: () => void
-  typeForm: DrawersForm
+  typeForm: FormsType
   title: string
 }
 
@@ -28,7 +28,7 @@ export const DrawerForm = ({
   typeForm,
   title,
 }: DrawerFormProps) => {
-  const formType = (type: DrawersForm) => {
+  const formType = (type: FormsType) => {
     switch (type) {
       case 'rescued':
         return <RescuedForm onClose={onClose} />

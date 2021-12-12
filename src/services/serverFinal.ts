@@ -428,7 +428,7 @@ export default function ({ environment = 'development' } = {}) {
       })
 
       this.delete('/activities/:id', (schema, request) => {
-        let id = request.params.id
+        let id = request?.params?.id
         schema.db.activities.remove(id)
         return schema
       })
@@ -445,6 +445,12 @@ export default function ({ environment = 'development' } = {}) {
         const data = JSON.parse(request.requestBody)
         
         return schema.create('person', data)
+      })
+
+      this.delete('/people/:id', (schema, request) => {
+        let id = request?.params?.id
+        this.schema.db.people.remove(id)
+        return schema
       })
     },
   })

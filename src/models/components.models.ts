@@ -6,3 +6,5 @@ export interface NavigationCardContent {
   ariaLabel: string
   color: string
 }
+
+export type FormsType = 'camp' | 'activity' | 'rescued'

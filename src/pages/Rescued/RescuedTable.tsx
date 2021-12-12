@@ -50,7 +50,11 @@ export const RescuedTable = () => {
                   fontSize={'2xl'}
                   onClick={() => onOpenDrawer('rescued', 'Editar Resgatado')}
                 />
-                <AlertModal />
+                <AlertModal
+                  id={person?.id}
+                  name={person?.name}
+                  typeForm="rescued"
+                />
               </Flex>
             </Td>
           </Tr>
