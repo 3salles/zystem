@@ -3,12 +3,8 @@ import React from 'react'
 import { formatHealth } from '../../helpers/formatHealth'
 import { Rescued } from '../../models'
 
-export interface RescuedCard extends Rescued {
-  campColor: string
-}
-
 interface RescuedCardProps {
-  rescued: RescuedCard
+  rescued: Rescued
 }
 
 export const RescuedCard = ({ rescued }: RescuedCardProps) => {
@@ -19,10 +15,10 @@ export const RescuedCard = ({ rescued }: RescuedCardProps) => {
         <Text>{rescued?.age} anos</Text>
         <Tag
           variant="unstyled"
-          outline={`1px solid ${rescued?.campColor}`}
+          outline={`1px solid ${rescued?.camp?.color}`}
           color="white"
         >
-          {rescued?.camp}
+          {rescued?.camp?.name}
         </Tag>
         <Badge
           variant={'subtle'}

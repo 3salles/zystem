@@ -8,6 +8,7 @@ export default function ({environment = "development"} = {}){
     models: {
       activity: Model,
       camp: Model,
+      person: Model,
     },
 
     seeds(server){
@@ -143,7 +144,265 @@ export default function ({environment = "development"} = {}){
             "totalInfected": 10,
             "createdAt": new Date('2021-09-12 10:00:00'),
           }
-        ] 
+        ],
+        rescued: [
+          {
+            "id": 0,
+            "name": "Adria Hans",
+            "age": 24,
+            "blood": "B+",
+            "skills": "Cozinhar, professora",
+            "injured": false,
+            "healthStatus": "healthy",
+            "invalid": false,
+            "observation": "",
+            "camp": {
+              "id": 0,
+              "name": "Acampamento Meio Sangue",
+              "capacity": 100,
+              "occupied": 60,
+              "campers": [
+                {
+                  "id": 0,
+                  "name": "Adria Hans",
+                  "age": 24,
+                  "blood": "B+",
+                  "skills": "Cozinhar, professora",
+                  "injured": false,
+                  "healthStatus": "healthy",
+                  "invalid": false,
+                  "observation": "",
+                  "camp": "Acampamento Meio Sangue",
+                  "activity": "",
+                  "campColor": "yellow"
+                }
+              ],
+              "activities": [{}],
+              "color": "yellow",
+              "totalInfected": 20,
+              "createdAt": new Date('2021-09-12 10:00:00'),
+            },
+            "activity": "",
+            "createdAt": new Date('2021-09-12 10:00:00'),
+          },
+          {
+            "id": 1,
+            "name": "Josh Williams",
+            "age": 46,
+            "blood": "A+",
+            "skills": "Eletricista",
+            "injured": false,
+            "healthStatus": "healthy",
+            "invalid": true,
+            "observation": "Devido a um acidente, teve a perna esquerda amputada. Por ser eletricista, pode ensinar campistas sua profissão.",
+            "camp":  {
+              "id": 1,
+              "name": "Acampamento Jupiter",
+              "capacity": 150,
+              "occupied": 150,
+              "campers": [
+                {
+                  "id": 0,
+                  "name": "Josh Williams",
+                  "age": 46,
+                  "blood": "A+",
+                  "skills": "Eletricista",
+                  "injured": false,
+                  "healthStatus": "healthy",
+                  "invalid": true,
+                  "observation": "Devido a um acidente, teve a perna esquerda amputada. Por ser eletricista, pode ensinar campistas sua profissão.",
+                  "camp": "Acampamento Jupiter",
+                  "activity": "Manutenção",
+                  "campColor": "blue",
+                  
+                },
+                {
+                  "id": 1,
+                  "name": "Luna Williams",
+                  "age": 16,
+                  "blood": "A+",
+                  "skills": "Corredora",
+                  "injured": false,
+                  "healthStatus": "healthy",
+                  "invalid": false,
+                  "observation": "Filha de Josh Williams, muito boa em se esconder e coletar alimentos.",
+                  "camp": "Acampamento Jupiter",
+                  "activity": "Campo externo",
+                  "campColor": "blue",
+                  
+                }
+              ],
+              "activities": [{}],
+              "color": "blue",
+              "totalInfected": 80,
+              "createdAt": new Date('2021-09-12 10:00:00'),
+            },
+            "activity": "Manutenção",
+            "createdAt": new Date('2021-09-12 10:00:00'),
+          },
+          {
+            "id": 2,
+            "name": "Luna Williams",
+            "age": 16,
+            "blood": "A+",
+            "skills": "Corredora",
+            "injured": false,
+            "healthStatus": "healthy",
+            "invalid": false,
+            "observation": "Filha de Josh Williams, muito boa em se esconder e coletar alimentos.",
+            "camp":  {
+              "id": 1,
+              "name": "Acampamento Jupiter",
+              "capacity": 150,
+              "occupied": 150,
+              "campers": [
+                {
+                  "id": 0,
+                  "name": "Josh Williams",
+                  "age": 46,
+                  "blood": "A+",
+                  "skills": "Eletricista",
+                  "injured": false,
+                  "healthStatus": "healthy",
+                  "invalid": true,
+                  "observation": "Devido a um acidente, teve a perna esquerda amputada. Por ser eletricista, pode ensinar campistas sua profissão.",
+                  "camp": "Acampamento Jupiter",
+                  "activity": "Manutenção",
+                  "campColor": "blue",
+                  
+                },
+                {
+                  "id": 1,
+                  "name": "Luna Williams",
+                  "age": 16,
+                  "blood": "A+",
+                  "skills": "Corredora",
+                  "injured": false,
+                  "healthStatus": "healthy",
+                  "invalid": false,
+                  "observation": "Filha de Josh Williams, muito boa em se esconder e coletar alimentos.",
+                  "camp": "Acampamento Jupiter",
+                  "activity": "Campo externo",
+                  "campColor": "blue",
+                  
+                }
+              ],
+              "activities": [{}],
+              "color": "blue",
+              "totalInfected": 80,
+              "createdAt": new Date('2021-09-12 10:00:00'),
+            },
+            "activity": "Campo externo",
+            "createdAt": new Date('2021-09-12 10:00:00'),
+          },
+          {
+            "id": 3,
+            "name": "Joseph Juan",
+            "age": 36,
+            "blood": "O+",
+            "skills": "Professor",
+            "injured": false,
+            "healthStatus": "infected",
+            "invalid": true,
+            "observation": "Chegou ao acampamento com uma mordida na mão. Para evitar a transformação, teve sua mão amputada. Encontra-se na ala de observação",
+            "camp": {
+              "id": 2,
+              "name": "Acampamento Jackson",
+              "capacity": 150,
+              "occupied": 100,
+              "campers": [
+                {
+                  "id": 0,
+                  "name": "Joseph Juan",
+                  "age": 36,
+                  "blood": "O+",
+                  "skills": "Professor",
+                  "injured": false,
+                  "healthStatus": "infected",
+                  "invalid": true,
+                  "observation": "Chegou ao acampamento com uma mordida na mão. Para evitar a transformação, teve sua mão amputada. Encontra-se na ala de observação",
+                  "camp": "Acampamento Jackson",
+                  "activity": "",
+                  "campColor": "pink"
+                },
+                {
+                  "id": 1,
+                  "name": "Diana Loston",
+                  "age": 27,
+                  "blood": "AB+",
+                  "skills": "Atiradora, lutadora, atleta",
+                  "injured": false,
+                  "healthStatus": "healthy",
+                  "invalid": false,
+                  "observation": "Passou por treinamento militar no ensino médio e antes de tudo isto. Muito bom ter ela na busca de mantimentos",
+                  "camp": "Acampamento Jackson",
+                  "activity": "Campo externo",
+                  "campColor": "pink"
+                }
+              ],
+              "activities": [{}],
+              "color": "pink",
+              "totalInfected": 10,
+              "createdAt": new Date('2021-09-12 10:00:00'),
+            },
+            "activity": "",
+            "createdAt": new Date('2021-09-12 10:00:00'),
+          },
+          {
+            "id": 4,
+            "name": "Diana Loston",
+            "age": 27,
+            "blood": "AB+",
+            "skills": "Atiradora, lutadora, atleta",
+            "injured": false,
+            "healthStatus": "healthy",
+            "invalid": false,
+            "observation": "Passou por treinamento militar no ensino médio e antes de tudo isto. Muito bom ter ela na busca de mantimentos",
+            "camp":{
+              "id": 2,
+              "name": "Acampamento Jackson",
+              "capacity": 150,
+              "occupied": 100,
+              "campers": [
+                {
+                  "id": 0,
+                  "name": "Joseph Juan",
+                  "age": 36,
+                  "blood": "O+",
+                  "skills": "Professor",
+                  "injured": false,
+                  "healthStatus": "infected",
+                  "invalid": true,
+                  "observation": "Chegou ao acampamento com uma mordida na mão. Para evitar a transformação, teve sua mão amputada. Encontra-se na ala de observação",
+                  "camp": "Acampamento Jackson",
+                  "activity": "",
+                  "campColor": "pink"
+                },
+                {
+                  "id": 1,
+                  "name": "Diana Loston",
+                  "age": 27,
+                  "blood": "AB+",
+                  "skills": "Atiradora, lutadora, atleta",
+                  "injured": false,
+                  "healthStatus": "healthy",
+                  "invalid": false,
+                  "observation": "Passou por treinamento militar no ensino médio e antes de tudo isto. Muito bom ter ela na busca de mantimentos",
+                  "camp": "Acampamento Jackson",
+                  "activity": "Campo externo",
+                  "campColor": "pink"
+                }
+              ],
+              "activities": [{}],
+              "color": "pink",
+              "totalInfected": 10,
+              "createdAt": new Date('2021-09-12 10:00:00'),
+            },
+            "activity": "Campo externo",
+            "createdAt": new Date('2021-09-12 10:00:00'),
+          }
+        ]
+        
       })
     },
 
@@ -170,6 +429,9 @@ export default function ({environment = "development"} = {}){
         return this.schema.all('camp')
       })
 
+      this.get('/people', () => {
+        return this.schema.all('person')
+      })
 
     },
   })

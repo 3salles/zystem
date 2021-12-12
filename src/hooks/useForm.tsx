@@ -6,7 +6,7 @@ import React, {
   useState,
 } from 'react'
 import { DrawersForm } from '../components/DrawerForm'
-import { Activity, Camp } from '../models'
+import { Activity, Camp, Rescued } from '../models'
 import { api } from '../services/api'
 
 type ActivityInput = Omit<Activity, 'id' | 'createdAt'>
@@ -21,6 +21,7 @@ interface FormContextData {
   typeForm: DrawersForm
   activities: Activity[]
   camps: Camp[]
+  rescued: Rescued[]
   createActivity: (activity: ActivityInput) => Promise<void>
   deleteActivity: (id: number | undefined) => Promise<void>
   onOpenDrawer: (type: DrawersForm, title: string) => void
@@ -32,6 +33,7 @@ const FormContext = createContext<FormContextData>({} as FormContextData)
 export const FormProvider = ({ children }: FormProviderProps) => {
   const [activities, setActivities] = useState<Activity[]>([])
   const [camps, setCamps] = useState<Camp[]>([])
+  const [rescued, setRescued] = useState<Rescued[]>([])
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [typeForm, setTypeForm] = useState<DrawersForm>('activity')
   const [title, setTitle] = useState('')
@@ -44,6 +46,10 @@ export const FormProvider = ({ children }: FormProviderProps) => {
 
   useEffect(() => {
     api.get('camps').then((response) => setCamps(response.data.camps))
+  }, [])
+
+  useEffect(() => {
+    api.get('people').then((response) => setRescued(response.data.rescued))
   }, [])
 
   const onOpenDrawer = (type: DrawersForm, title: string) => {
@@ -86,6 +92,7 @@ export const FormProvider = ({ children }: FormProviderProps) => {
         createActivity,
         deleteActivity,
         camps,
+        rescued,
       }}
     >
       {children}

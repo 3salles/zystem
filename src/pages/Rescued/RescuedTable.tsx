@@ -3,32 +3,27 @@ import React from 'react'
 import { Tbody, Tr, Td, Flex, IconButton, Tag, Badge } from '@chakra-ui/react'
 
 import { MdModeEdit } from 'react-icons/md'
-import { Rescued } from '../../models'
+
 import { formatHealth } from '../../helpers/formatHealth'
 import { AlertModal } from '../../components/AlertModal'
 import { useForm } from '../../hooks/useForm'
 
-export interface RescuedCard extends Rescued {
-  campColor: string
-}
-
-interface RescuedTableProps {
-  data: RescuedCard[]
-}
-
-export const RescuedTable = ({ data }: RescuedTableProps) => {
-  const { onOpenDrawer } = useForm()
+export const RescuedTable = () => {
+  const { onOpenDrawer, rescued } = useForm()
 
   return (
     <>
       <Tbody>
-        {data?.map((item) => (
+        {rescued?.map((item) => (
           <Tr key={item?.id}>
             <Td>{item?.name}</Td>
             <Td>{item?.age} anos</Td>
             <Td>
-              <Tag variant="unstyled" outline={`1px solid ${item?.campColor}`}>
-                {item?.camp}
+              <Tag
+                variant="unstyled"
+                outline={`1px solid ${item?.camp?.color}`}
+              >
+                {item?.camp?.name}
               </Tag>
             </Td>
             <Td>
