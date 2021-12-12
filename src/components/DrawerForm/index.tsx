@@ -33,7 +33,7 @@ export const DrawerForm = ({
       case 'rescued':
         return <RescuedForm onClose={onClose} />
       case 'camp':
-        return <CampForm />
+        return <CampForm onClose={onClose} />
       case 'activity':
         return <ActivityForm onClose={onClose} />
       default:

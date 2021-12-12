@@ -27,8 +27,8 @@ interface FormContextData {
   createActivity: (activity: ActivityInput) => Promise<void>
   createCamp: (camp: CampInput) => Promise<void>
   createPerson: (person: PersonInput) => Promise<void>
-  deleteActivity: (id: number | undefined) => Promise<void>
-  deletePerson: (id: number | undefined) => Promise<void>
+  deleteActivity: (id: number) => Promise<void>
+  deletePerson: (id: number) => Promise<void>
   onOpenDrawer: (type: FormsType, title: string) => void
   onCloseDrawer: () => void
 }
@@ -99,14 +99,14 @@ export const FormProvider = ({ children }: FormProviderProps) => {
     setCamps([...camps, camp])
   }
 
-  const deleteActivity = async (id: number | undefined) => {
+  const deleteActivity = async (id: number) => {
     await api.delete(`api/activities/${id}`).then(() => {
       const newActivities = activities.filter((activity) => activity?.id !== id)
       setActivities(newActivities)
     })
   }
 
-  const deletePerson = async (id: number | undefined) => {
+  const deletePerson = async (id: number) => {
     await api.delete(`/api/people/${id}`).then(() => {
       const newPeople = people.filter((person) => person?.id !== id)
       setPeople(newPeople)

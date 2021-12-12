@@ -39,7 +39,6 @@ export default function ({ environment = 'development' } = {}) {
             id: 0,
             name: 'Acampamento Meio Sangue',
             capacity: 100,
-            occupied: 60,
             campers: [
               {
                 id: 0,
@@ -51,24 +50,28 @@ export default function ({ environment = 'development' } = {}) {
                 healthStatus: 'healthy',
                 invalid: false,
                 observation: '',
-                camp: 'Acampamento Meio Sangue',
-                activity: '',
-                campColor: 'yellow',
-              },
+                camp: {},
+                createdAt: new Date('2021-09-12 10:00:00'),
+              }
             ],
-            activities: [{}],
+            activities: [
+              {
+                id: 0,
+                name: 'Coleta externa',
+                description: 'Busca e coleta de mantimentos para o acampamento',
+                createdAt: new Date('2021-09-12 10:00:00'),
+              }
+            ],
             color: 'yellow',
-            totalInfected: 20,
             createdAt: new Date('2021-09-12 10:00:00'),
           },
           {
             id: 1,
             name: 'Acampamento Jupiter',
             capacity: 150,
-            occupied: 150,
             campers: [
               {
-                id: 0,
+                id: 1,
                 name: 'Josh Williams',
                 age: 46,
                 blood: 'A+',
@@ -78,12 +81,40 @@ export default function ({ environment = 'development' } = {}) {
                 invalid: true,
                 observation:
                   'Devido a um acidente, teve a perna esquerda amputada. Por ser eletricista, pode ensinar campistas sua profissão.',
-                camp: 'Acampamento Jupiter',
-                activity: 'Manutenção',
-                campColor: 'blue',
+                camp: {
+                  id: 1,
+                  name: 'Acampamento Jupiter',
+                  capacity: 150,
+                  campers: [],
+                  activities: [
+                    {
+                      id: 0,
+                      name: 'Coleta externa',
+                      description: 'Busca e coleta de mantimentos para o acampamento',
+                      createdAt: new Date('2021-09-12 10:00:00'),
+                    },
+                    {
+                      id: 1,
+                      name: 'Manutenção interna',
+                      description:
+                        'Engloba todas as atividades de manutenção dentro do acampamento, por exemplo, reparos mecânicos, elétricos e de paredes',
+                      createdAt: new Date('2021-09-12 10:00:00'),
+                    },
+                    {
+                      id: 2,
+                      name: 'Segurança',
+                      description:
+                        'Observação de aproximação de zumbis, resgatados, mudanças climáticas',
+                      createdAt: new Date('2021-09-12 10:00:00'),
+                    },
+                  ],
+                  color: 'blue',
+                  createdAt: new Date('2021-09-12 10:00:00'),
+                },
+                createdAt: new Date('2021-09-12 10:00:00'),
               },
               {
-                id: 1,
+                id: 2,
                 name: 'Luna Williams',
                 age: 16,
                 blood: 'A+',
@@ -93,24 +124,72 @@ export default function ({ environment = 'development' } = {}) {
                 invalid: false,
                 observation:
                   'Filha de Josh Williams, muito boa em se esconder e coletar alimentos.',
-                camp: 'Acampamento Jupiter',
+                camp: {
+                  id: 1,
+                  name: 'Acampamento Jupiter',
+                  capacity: 150,
+                  campers: [],
+                  activities: [
+                    {
+                      id: 0,
+                      name: 'Coleta externa',
+                      description: 'Busca e coleta de mantimentos para o acampamento',
+                      createdAt: new Date('2021-09-12 10:00:00'),
+                    },
+                    {
+                      id: 1,
+                      name: 'Manutenção interna',
+                      description:
+                        'Engloba todas as atividades de manutenção dentro do acampamento, por exemplo, reparos mecânicos, elétricos e de paredes',
+                      createdAt: new Date('2021-09-12 10:00:00'),
+                    },
+                    {
+                      id: 2,
+                      name: 'Segurança',
+                      description:
+                        'Observação de aproximação de zumbis, resgatados, mudanças climáticas',
+                      createdAt: new Date('2021-09-12 10:00:00'),
+                    },
+                  ],
+                  color: 'blue',
+                  createdAt: new Date('2021-09-12 10:00:00'),
+                },
                 activity: 'Campo externo',
-                campColor: 'blue',
+                createdAt: new Date('2021-09-12 10:00:00'),
               },
             ],
-            activities: [{}],
+            activities: [
+              {
+                id: 0,
+                name: 'Coleta externa',
+                description: 'Busca e coleta de mantimentos para o acampamento',
+                createdAt: new Date('2021-09-12 10:00:00'),
+              },
+              {
+                id: 1,
+                name: 'Manutenção interna',
+                description:
+                  'Engloba todas as atividades de manutenção dentro do acampamento, por exemplo, reparos mecânicos, elétricos e de paredes',
+                createdAt: new Date('2021-09-12 10:00:00'),
+              },
+              {
+                id: 2,
+                name: 'Segurança',
+                description:
+                  'Observação de aproximação de zumbis, resgatados, mudanças climáticas',
+                createdAt: new Date('2021-09-12 10:00:00'),
+              },
+            ],
             color: 'blue',
-            totalInfected: 80,
             createdAt: new Date('2021-09-12 10:00:00'),
           },
           {
             id: 2,
             name: 'Acampamento Jackson',
-            capacity: 150,
-            occupied: 100,
+            capacity: 3,
             campers: [
               {
-                id: 0,
+                id: 3,
                 name: 'Joseph Juan',
                 age: 36,
                 blood: 'O+',
@@ -120,12 +199,34 @@ export default function ({ environment = 'development' } = {}) {
                 invalid: true,
                 observation:
                   'Chegou ao acampamento com uma mordida na mão. Para evitar a transformação, teve sua mão amputada. Encontra-se na ala de observação',
-                camp: 'Acampamento Jackson',
-                activity: '',
-                campColor: 'pink',
+                camp: {
+                  id: 2,
+                  name: 'Acampamento Jackson',
+                  capacity: 150,
+                  campers: [],
+                  activities: [
+                    {
+                      id: 1,
+                      name: 'Manutenção interna',
+                      description:
+                        'Engloba todas as atividades de manutenção dentro do acampamento, por exemplo, reparos mecânicos, elétricos e de paredes',
+                      createdAt: new Date('2021-09-12 10:00:00'),
+                    },
+                    {
+                      id: 2,
+                      name: 'Segurança',
+                      description:
+                        'Observação de aproximação de zumbis, resgatados, mudanças climáticas',
+                      createdAt: new Date('2021-09-12 10:00:00'),
+                    },
+                  ],
+                  color: 'pink',
+                  createdAt: new Date('2021-09-12 10:00:00'),
+                },
+                createdAt: new Date('2021-09-12 10:00:00'),
               },
               {
-                id: 1,
+                id: 4,
                 name: 'Diana Loston',
                 age: 27,
                 blood: 'AB+',
@@ -135,14 +236,87 @@ export default function ({ environment = 'development' } = {}) {
                 invalid: false,
                 observation:
                   'Passou por treinamento militar no ensino médio e antes de tudo isto. Muito bom ter ela na busca de mantimentos',
-                camp: 'Acampamento Jackson',
-                activity: 'Campo externo',
-                campColor: 'pink',
+                camp: {
+                  id: 2,
+                  name: 'Acampamento Jackson',
+                  capacity: 150,
+                  campers: [],
+                  activities: [
+                    {
+                      id: 1,
+                      name: 'Manutenção interna',
+                      description:
+                        'Engloba todas as atividades de manutenção dentro do acampamento, por exemplo, reparos mecânicos, elétricos e de paredes',
+                      createdAt: new Date('2021-09-12 10:00:00'),
+                    },
+                    {
+                      id: 2,
+                      name: 'Segurança',
+                      description:
+                        'Observação de aproximação de zumbis, resgatados, mudanças climáticas',
+                      createdAt: new Date('2021-09-12 10:00:00'),
+                    },
+                  ],
+                  color: 'pink',
+                  createdAt: new Date('2021-09-12 10:00:00'),
+                },
+                createdAt: new Date('2021-09-12 10:00:00'),
+              },
+              {
+                id: 5,
+                name: 'Hannah Hamdall',
+                age: 29,
+                blood: 'AB+',
+                skills: 'Médica',
+                injured: false,
+                healthStatus: 'healthy',
+                invalid: false,
+                observation:
+                  'Possui conhecimentos em ervas',
+                camp: {
+                  id: 2,
+                  name: 'Acampamento Jackson',
+                  capacity: 150,
+                  campers: [],
+                  activities: [
+                    {
+                      id: 1,
+                      name: 'Manutenção interna',
+                      description:
+                        'Engloba todas as atividades de manutenção dentro do acampamento, por exemplo, reparos mecânicos, elétricos e de paredes',
+                      createdAt: new Date('2021-09-12 10:00:00'),
+                    },
+                    {
+                      id: 2,
+                      name: 'Segurança',
+                      description:
+                        'Observação de aproximação de zumbis, resgatados, mudanças climáticas',
+                      createdAt: new Date('2021-09-12 10:00:00'),
+                    },
+                  ],
+                  color: 'pink',
+                  createdAt: new Date('2021-09-12 10:00:00'),
+                },
+                createdAt: new Date('2021-09-12 10:00:00'),
               },
             ],
-            activities: [{}],
+            activities: [
+              {
+                id: 1,
+                name: 'Manutenção interna',
+                description:
+                  'Engloba todas as atividades de manutenção dentro do acampamento, por exemplo, reparos mecânicos, elétricos e de paredes',
+                createdAt: new Date('2021-09-12 10:00:00'),
+              },
+              {
+                id: 2,
+                name: 'Segurança',
+                description:
+                  'Observação de aproximação de zumbis, resgatados, mudanças climáticas',
+                createdAt: new Date('2021-09-12 10:00:00'),
+              },
+            ],
             color: 'pink',
-            totalInfected: 10,
             createdAt: new Date('2021-09-12 10:00:00'),
           },
         ],
@@ -161,7 +335,6 @@ export default function ({ environment = 'development' } = {}) {
               id: 0,
               name: 'Acampamento Meio Sangue',
               capacity: 100,
-              occupied: 60,
               campers: [
                 {
                   id: 0,
@@ -173,17 +346,21 @@ export default function ({ environment = 'development' } = {}) {
                   healthStatus: 'healthy',
                   invalid: false,
                   observation: '',
-                  camp: 'Acampamento Meio Sangue',
-                  activity: '',
-                  campColor: 'yellow',
-                },
+                  camp: {},
+                  createdAt: new Date('2021-09-12 10:00:00'),
+                }
               ],
-              activities: [{}],
+              activities: [
+                {
+                  id: 0,
+                  name: 'Coleta externa',
+                  description: 'Busca e coleta de mantimentos para o acampamento',
+                  createdAt: new Date('2021-09-12 10:00:00'),
+                }
+              ],
               color: 'yellow',
-              totalInfected: 20,
               createdAt: new Date('2021-09-12 10:00:00'),
             },
-            activity: '',
             createdAt: new Date('2021-09-12 10:00:00'),
           },
           {
@@ -201,45 +378,32 @@ export default function ({ environment = 'development' } = {}) {
               id: 1,
               name: 'Acampamento Jupiter',
               capacity: 150,
-              occupied: 150,
-              campers: [
+              campers: [],
+              activities: [
                 {
                   id: 0,
-                  name: 'Josh Williams',
-                  age: 46,
-                  blood: 'A+',
-                  skills: 'Eletricista',
-                  injured: false,
-                  healthStatus: 'healthy',
-                  invalid: true,
-                  observation:
-                    'Devido a um acidente, teve a perna esquerda amputada. Por ser eletricista, pode ensinar campistas sua profissão.',
-                  camp: 'Acampamento Jupiter',
-                  activity: 'Manutenção',
-                  campColor: 'blue',
+                  name: 'Coleta externa',
+                  description: 'Busca e coleta de mantimentos para o acampamento',
+                  createdAt: new Date('2021-09-12 10:00:00'),
                 },
                 {
                   id: 1,
-                  name: 'Luna Williams',
-                  age: 16,
-                  blood: 'A+',
-                  skills: 'Corredora',
-                  injured: false,
-                  healthStatus: 'healthy',
-                  invalid: false,
-                  observation:
-                    'Filha de Josh Williams, muito boa em se esconder e coletar alimentos.',
-                  camp: 'Acampamento Jupiter',
-                  activity: 'Campo externo',
-                  campColor: 'blue',
+                  name: 'Manutenção interna',
+                  description:
+                    'Engloba todas as atividades de manutenção dentro do acampamento, por exemplo, reparos mecânicos, elétricos e de paredes',
+                  createdAt: new Date('2021-09-12 10:00:00'),
+                },
+                {
+                  id: 2,
+                  name: 'Segurança',
+                  description:
+                    'Observação de aproximação de zumbis, resgatados, mudanças climáticas',
+                  createdAt: new Date('2021-09-12 10:00:00'),
                 },
               ],
-              activities: [{}],
               color: 'blue',
-              totalInfected: 80,
               createdAt: new Date('2021-09-12 10:00:00'),
             },
-            activity: 'Manutenção',
             createdAt: new Date('2021-09-12 10:00:00'),
           },
           {
@@ -257,42 +421,30 @@ export default function ({ environment = 'development' } = {}) {
               id: 1,
               name: 'Acampamento Jupiter',
               capacity: 150,
-              occupied: 150,
-              campers: [
+              campers: [],
+              activities: [
                 {
                   id: 0,
-                  name: 'Josh Williams',
-                  age: 46,
-                  blood: 'A+',
-                  skills: 'Eletricista',
-                  injured: false,
-                  healthStatus: 'healthy',
-                  invalid: true,
-                  observation:
-                    'Devido a um acidente, teve a perna esquerda amputada. Por ser eletricista, pode ensinar campistas sua profissão.',
-                  camp: 'Acampamento Jupiter',
-                  activity: 'Manutenção',
-                  campColor: 'blue',
+                  name: 'Coleta externa',
+                  description: 'Busca e coleta de mantimentos para o acampamento',
+                  createdAt: new Date('2021-09-12 10:00:00'),
                 },
                 {
                   id: 1,
-                  name: 'Luna Williams',
-                  age: 16,
-                  blood: 'A+',
-                  skills: 'Corredora',
-                  injured: false,
-                  healthStatus: 'healthy',
-                  invalid: false,
-                  observation:
-                    'Filha de Josh Williams, muito boa em se esconder e coletar alimentos.',
-                  camp: 'Acampamento Jupiter',
-                  activity: 'Campo externo',
-                  campColor: 'blue',
+                  name: 'Manutenção interna',
+                  description:
+                    'Engloba todas as atividades de manutenção dentro do acampamento, por exemplo, reparos mecânicos, elétricos e de paredes',
+                  createdAt: new Date('2021-09-12 10:00:00'),
+                },
+                {
+                  id: 2,
+                  name: 'Segurança',
+                  description:
+                    'Observação de aproximação de zumbis, resgatados, mudanças climáticas',
+                  createdAt: new Date('2021-09-12 10:00:00'),
                 },
               ],
-              activities: [{}],
               color: 'blue',
-              totalInfected: 80,
               createdAt: new Date('2021-09-12 10:00:00'),
             },
             activity: 'Campo externo',
@@ -313,45 +465,26 @@ export default function ({ environment = 'development' } = {}) {
               id: 2,
               name: 'Acampamento Jackson',
               capacity: 150,
-              occupied: 100,
-              campers: [
-                {
-                  id: 0,
-                  name: 'Joseph Juan',
-                  age: 36,
-                  blood: 'O+',
-                  skills: 'Professor',
-                  injured: false,
-                  healthStatus: 'infected',
-                  invalid: true,
-                  observation:
-                    'Chegou ao acampamento com uma mordida na mão. Para evitar a transformação, teve sua mão amputada. Encontra-se na ala de observação',
-                  camp: 'Acampamento Jackson',
-                  activity: '',
-                  campColor: 'pink',
-                },
+              campers: [],
+              activities: [
                 {
                   id: 1,
-                  name: 'Diana Loston',
-                  age: 27,
-                  blood: 'AB+',
-                  skills: 'Atiradora, lutadora, atleta',
-                  injured: false,
-                  healthStatus: 'healthy',
-                  invalid: false,
-                  observation:
-                    'Passou por treinamento militar no ensino médio e antes de tudo isto. Muito bom ter ela na busca de mantimentos',
-                  camp: 'Acampamento Jackson',
-                  activity: 'Campo externo',
-                  campColor: 'pink',
+                  name: 'Manutenção interna',
+                  description:
+                    'Engloba todas as atividades de manutenção dentro do acampamento, por exemplo, reparos mecânicos, elétricos e de paredes',
+                  createdAt: new Date('2021-09-12 10:00:00'),
+                },
+                {
+                  id: 2,
+                  name: 'Segurança',
+                  description:
+                    'Observação de aproximação de zumbis, resgatados, mudanças climáticas',
+                  createdAt: new Date('2021-09-12 10:00:00'),
                 },
               ],
-              activities: [{}],
               color: 'pink',
-              totalInfected: 10,
               createdAt: new Date('2021-09-12 10:00:00'),
             },
-            activity: '',
             createdAt: new Date('2021-09-12 10:00:00'),
           },
           {
@@ -369,45 +502,63 @@ export default function ({ environment = 'development' } = {}) {
               id: 2,
               name: 'Acampamento Jackson',
               capacity: 150,
-              occupied: 100,
-              campers: [
-                {
-                  id: 0,
-                  name: 'Joseph Juan',
-                  age: 36,
-                  blood: 'O+',
-                  skills: 'Professor',
-                  injured: false,
-                  healthStatus: 'infected',
-                  invalid: true,
-                  observation:
-                    'Chegou ao acampamento com uma mordida na mão. Para evitar a transformação, teve sua mão amputada. Encontra-se na ala de observação',
-                  camp: 'Acampamento Jackson',
-                  activity: '',
-                  campColor: 'pink',
-                },
+              campers: [],
+              activities: [
                 {
                   id: 1,
-                  name: 'Diana Loston',
-                  age: 27,
-                  blood: 'AB+',
-                  skills: 'Atiradora, lutadora, atleta',
-                  injured: false,
-                  healthStatus: 'healthy',
-                  invalid: false,
-                  observation:
-                    'Passou por treinamento militar no ensino médio e antes de tudo isto. Muito bom ter ela na busca de mantimentos',
-                  camp: 'Acampamento Jackson',
-                  activity: 'Campo externo',
-                  campColor: 'pink',
+                  name: 'Manutenção interna',
+                  description:
+                    'Engloba todas as atividades de manutenção dentro do acampamento, por exemplo, reparos mecânicos, elétricos e de paredes',
+                  createdAt: new Date('2021-09-12 10:00:00'),
+                },
+                {
+                  id: 2,
+                  name: 'Segurança',
+                  description:
+                    'Observação de aproximação de zumbis, resgatados, mudanças climáticas',
+                  createdAt: new Date('2021-09-12 10:00:00'),
                 },
               ],
-              activities: [{}],
               color: 'pink',
-              totalInfected: 10,
               createdAt: new Date('2021-09-12 10:00:00'),
             },
-            activity: 'Campo externo',
+            createdAt: new Date('2021-09-12 10:00:00'),
+          },
+          {
+            id: 5,
+            name: 'Hannah Hamdall',
+            age: 29,
+            blood: 'AB+',
+            skills: 'Médica',
+            injured: false,
+            healthStatus: 'healthy',
+            invalid: false,
+            observation:
+              'Possui conhecimentos em ervas',
+            camp: {
+              id: 2,
+              name: 'Acampamento Jackson',
+              capacity: 150,
+              campers: [],
+              activities: [
+                {
+                  id: 1,
+                  name: 'Manutenção interna',
+                  description:
+                    'Engloba todas as atividades de manutenção dentro do acampamento, por exemplo, reparos mecânicos, elétricos e de paredes',
+                  createdAt: new Date('2021-09-12 10:00:00'),
+                },
+                {
+                  id: 2,
+                  name: 'Segurança',
+                  description:
+                    'Observação de aproximação de zumbis, resgatados, mudanças climáticas',
+                  createdAt: new Date('2021-09-12 10:00:00'),
+                },
+              ],
+              color: 'pink',
+              createdAt: new Date('2021-09-12 10:00:00'),
+            },
             createdAt: new Date('2021-09-12 10:00:00'),
           },
         ],
@@ -435,6 +586,12 @@ export default function ({ environment = 'development' } = {}) {
 
       this.get('/camps', () => {
         return this.schema.all('camp')
+      })
+
+      this.post('/camps', (schema, request) => {
+        const data = JSON.parse(request.requestBody)
+
+        return schema.create('camp', data)
       })
 
       this.get('/people', () => {

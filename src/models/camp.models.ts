@@ -5,10 +5,8 @@ export interface Camp {
   id: number
   name: string
   capacity: number
-  occupied: number
-  campers?: Person[] | null
-  activities?: Activity[] | null
-  color?: string
-  totalInfected: number
+  campers: Person[] 
+  activities: Activity[] 
+  color: string
   createdAt: string
 }
