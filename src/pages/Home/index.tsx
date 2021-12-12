@@ -14,10 +14,30 @@ import { cardContent } from '../../utils/cardsContent'
 import { NavigationCard } from '../../components/Cards/NavigationCard'
 import { RescuedCard } from '../../components/Cards/RescuedCard'
 import { useForm } from '../../hooks/useForm'
+import { sortFunctionByHour } from '../../helpers/sortFuncionByHour'
 
 export const Home = () => {
   const { people } = useForm()
-  console.log(people)
+
+  const sortedPeople = people.sort(sortFunctionByHour)
+
+  const infectedPeople = people?.reduce(
+    (accumulator, person) => {
+      if (person?.healthStatus === 'infected') {
+        accumulator.total += 1
+      }
+      return accumulator
+    },
+    {
+      total: 0,
+    },
+  )
+
+  const infectedPercentage = (
+    (100 * infectedPeople?.total) /
+    people?.length
+  ).toFixed(2)
+
   return (
     <AppLayout>
       <Box as="section" w="100%" p="4" maxW={1480}>
@@ -25,13 +45,13 @@ export const Home = () => {
           <Heading as="h1" mb="2">
             Refugiados:
             <Text ml="2" as="span" fontFamily={'VT323'} color={'borders.200'}>
-              289
+              {people.length}
             </Text>
           </Heading>
           <Progress
             size={'lg'}
-            value={30}
-            max={289}
+            value={infectedPeople?.total}
+            max={people.length}
             colorScheme={'brightRed'}
             bg={'yellowGreen.100'}
           />
@@ -45,7 +65,7 @@ export const Home = () => {
                 color="brightRed.100"
                 fontSize={'3xl'}
               >
-                30%
+                {infectedPercentage} %
               </Text>
             </Text>
             <Text mt="1" fontSize={'xl'}>
@@ -57,7 +77,7 @@ export const Home = () => {
                 color="yellowGreen.100"
                 fontSize={'3xl'}
               >
-                70%
+                {100 - Number(infectedPercentage)} %
               </Text>
             </Text>
           </Flex>
@@ -72,7 +92,7 @@ export const Home = () => {
             Resgatados recentemente
           </Heading>
           <VStack w="100%" spacing={4}>
-            {people?.map((person) => (
+            {sortedPeople?.slice(0, 5)?.map((person) => (
               <RescuedCard key={person?.id} rescued={person} />
             ))}
           </VStack>

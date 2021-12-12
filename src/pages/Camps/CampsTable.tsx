@@ -10,7 +10,6 @@ import { useForm } from '../../hooks/useForm'
 export const CampsTable = () => {
   const { onOpenDrawer, camps } = useForm()
 
-  console.log(camps)
   return (
     <>
       <Tbody>
@@ -28,11 +27,16 @@ export const CampsTable = () => {
                 </Badge>
               ) : (
                 camp?.campers?.length + ' pessoas'
-              )}{' '}
+              )}
             </Td>
-            {/* <Td fontWeight={'bold'} color="borders.200">
-              {camp?.totalInfected} infectados
-            </Td> */}
+            <Td fontWeight={'bold'} color="borders.200">
+              {
+                camp?.campers?.filter(
+                  (camper) => camper?.healthStatus !== 'healthy',
+                ).length
+              }
+              {''} infectado(s)
+            </Td>
 
             <Td>
               <Flex justify={'center'}>

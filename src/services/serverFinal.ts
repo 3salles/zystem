@@ -404,7 +404,7 @@ export default function ({ environment = 'development' } = {}) {
               color: 'blue',
               createdAt: new Date('2021-09-12 10:00:00'),
             },
-            createdAt: new Date('2021-09-12 10:00:00'),
+            createdAt: new Date('2021-09-12 11:00:00'),
           },
           {
             id: 2,
@@ -448,7 +448,7 @@ export default function ({ environment = 'development' } = {}) {
               createdAt: new Date('2021-09-12 10:00:00'),
             },
             activity: 'Campo externo',
-            createdAt: new Date('2021-09-12 10:00:00'),
+            createdAt: new Date('2021-09-12 12:00:00'),
           },
           {
             id: 3,
@@ -485,7 +485,7 @@ export default function ({ environment = 'development' } = {}) {
               color: 'pink',
               createdAt: new Date('2021-09-12 10:00:00'),
             },
-            createdAt: new Date('2021-09-12 10:00:00'),
+            createdAt: new Date('2021-09-12 17:00:00'),
           },
           {
             id: 4,
@@ -522,7 +522,7 @@ export default function ({ environment = 'development' } = {}) {
               color: 'pink',
               createdAt: new Date('2021-09-12 10:00:00'),
             },
-            createdAt: new Date('2021-09-12 10:00:00'),
+            createdAt: new Date('2021-09-12 80:00:00'),
           },
           {
             id: 5,
@@ -546,7 +546,7 @@ export default function ({ environment = 'development' } = {}) {
                   name: 'Manutenção interna',
                   description:
                     'Engloba todas as atividades de manutenção dentro do acampamento, por exemplo, reparos mecânicos, elétricos e de paredes',
-                  createdAt: new Date('2021-09-12 10:00:00'),
+                  createdAt: new Date('2021-09-12 21:00:00'),
                 },
                 {
                   id: 2,
