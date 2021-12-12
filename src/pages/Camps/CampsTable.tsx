@@ -8,34 +8,30 @@ import { Camp } from '../../models'
 import { AlertModal } from '../../components/AlertModal'
 import { useForm } from '../../hooks/useForm'
 
-interface CampsTableProps {
-  data: Camp[]
-}
-
-export const CampsTable = ({ data }: CampsTableProps) => {
-  const { onOpenDrawer } = useForm()
-
+export const CampsTable = () => {
+  const { onOpenDrawer, camps } = useForm()
+  console.log(camps)
   return (
     <>
       <Tbody>
-        {data?.map((item) => (
-          <Tr key={item?.id}>
+        {camps?.map((camp) => (
+          <Tr key={camp?.id}>
             <Td>
-              <Box bg={item?.color} h={4} />
+              <Box bg={camp?.color} h={4} />
             </Td>
-            <Td>{item?.name}</Td>
-            <Td> máx. {item?.capacity} pessoas</Td>
+            <Td>{camp?.name}</Td>
+            <Td> máx. {camp?.capacity} pessoas</Td>
             <Td>
-              {item?.occupied === item?.capacity ? (
+              {camp?.occupied === camp?.capacity ? (
                 <Badge colorScheme={'brightRed'} color="white">
                   Lotado
                 </Badge>
               ) : (
-                item?.occupied + ' pessoas'
+                camp?.occupied + ' pessoas'
               )}{' '}
             </Td>
             <Td fontWeight={'bold'} color="borders.200">
-              {item?.totalInfected} infectados
+              {camp?.totalInfected} infectados
             </Td>
 
             <Td>
@@ -50,7 +46,7 @@ export const CampsTable = ({ data }: CampsTableProps) => {
                   fontSize={'2xl'}
                   onClick={() => onOpenDrawer('camp', 'Editar acampamento')}
                 />
-                <AlertModal />
+                <AlertModal id={camp?.id} name={camp?.name} />
               </Flex>
             </Td>
           </Tr>

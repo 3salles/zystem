@@ -29,7 +29,10 @@ export const ActivitiesTable = () => {
                   fontSize={'2xl'}
                   onClick={() => onOpenDrawer('activity', 'Editar atividade')}
                 />
-                <AlertModal id={activity?.id} name={activity.name} />
+                <AlertModal
+                  id={activity?.id}
+                  name={`Atividade ${activity?.name}`}
+                />
               </Flex>
             </Td>
           </Tr>
