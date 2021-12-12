@@ -6,10 +6,12 @@ import React, {
   useState,
 } from 'react'
 import { DrawersForm } from '../components/DrawerForm'
-import { Activity, Camp, Rescued } from '../models'
+import { Activity, Camp, Person } from '../models'
 import { api } from '../services/api'
 
 type ActivityInput = Omit<Activity, 'id' | 'createdAt'>
+type CampInput = Omit<Camp, 'id' | 'createdAt'>
+type PersonInput = Omit<Person, 'id' | 'createdAt' | 'camp'>
 
 interface FormProviderProps {
   children: ReactNode
@@ -21,8 +23,10 @@ interface FormContextData {
   typeForm: DrawersForm
   activities: Activity[]
   camps: Camp[]
-  rescued: Rescued[]
+  people: Person[]
   createActivity: (activity: ActivityInput) => Promise<void>
+  createCamp: (camp: CampInput) => Promise<void>
+  createPerson: (person: PersonInput) => Promise<void>
   deleteActivity: (id: number | undefined) => Promise<void>
   onOpenDrawer: (type: DrawersForm, title: string) => void
   onCloseDrawer: () => void
@@ -33,7 +37,7 @@ const FormContext = createContext<FormContextData>({} as FormContextData)
 export const FormProvider = ({ children }: FormProviderProps) => {
   const [activities, setActivities] = useState<Activity[]>([])
   const [camps, setCamps] = useState<Camp[]>([])
-  const [rescued, setRescued] = useState<Rescued[]>([])
+  const [people, setPeople] = useState<Person[]>([])
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [typeForm, setTypeForm] = useState<DrawersForm>('activity')
   const [title, setTitle] = useState('')
@@ -49,7 +53,7 @@ export const FormProvider = ({ children }: FormProviderProps) => {
   }, [])
 
   useEffect(() => {
-    api.get('/api/people').then((response) => setRescued(response.data.people))
+    api.get('/api/people').then((response) => setPeople(response.data.people))
   }, [])
 
   const onOpenDrawer = (type: DrawersForm, title: string) => {
@@ -63,7 +67,7 @@ export const FormProvider = ({ children }: FormProviderProps) => {
   }
 
   const createActivity = async (activityInput: ActivityInput) => {
-    const response = await api.post('/activities', {
+    const response = await api.post('/api/activities', {
       ...activityInput,
       createdAt: new Date(),
     })
@@ -71,6 +75,27 @@ export const FormProvider = ({ children }: FormProviderProps) => {
     const { activity } = response.data
 
     setActivities([...activities, activity])
+  }
+
+  const createPerson = async (personInput: PersonInput) => {
+    const response = await api.post('/api/people', {
+      ...personInput,
+      createdAt: new Date(),
+    })
+
+    const { person } = response.data
+
+    setPeople([...people, person])
+  }
+
+  const createCamp = async (campInput: CampInput) => {
+    const response = await api.post('/api/camps', {
+      ...campInput,
+      createdAt: new Date(),
+    })
+
+    const { camp } = response.data
+    setCamps([...camps, camp])
   }
 
   const deleteActivity = async (id: number | undefined) => {
@@ -92,7 +117,9 @@ export const FormProvider = ({ children }: FormProviderProps) => {
         createActivity,
         deleteActivity,
         camps,
-        rescued,
+        createCamp,
+        people,
+        createPerson,
       }}
     >
       {children}

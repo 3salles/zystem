@@ -31,7 +31,7 @@ export const DrawerForm = ({
   const formType = (type: DrawersForm) => {
     switch (type) {
       case 'rescued':
-        return <RescuedForm />
+        return <RescuedForm onClose={onClose} />
       case 'camp':
         return <CampForm />
       case 'activity':

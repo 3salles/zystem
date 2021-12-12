@@ -440,6 +440,12 @@ export default function ({ environment = 'development' } = {}) {
       this.get('/people', () => {
         return this.schema.all('person')
       })
+
+      this.post('/people', (schema, request) => {
+        const data = JSON.parse(request.requestBody)
+        
+        return schema.create('person', data)
+      })
     },
   })
 }

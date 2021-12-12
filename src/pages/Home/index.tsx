@@ -16,8 +16,8 @@ import { RescuedCard } from '../../components/Cards/RescuedCard'
 import { useForm } from '../../hooks/useForm'
 
 export const Home = () => {
-  const { rescued } = useForm()
-  console.log(rescued)
+  const { people } = useForm()
+  console.log(people)
   return (
     <AppLayout>
       <Box as="section" w="100%" p="4" maxW={1480}>
@@ -72,8 +72,8 @@ export const Home = () => {
             Resgatados recentemente
           </Heading>
           <VStack w="100%" spacing={4}>
-            {rescued?.map((rescued) => (
-              <RescuedCard key={rescued.id} rescued={rescued} />
+            {people?.map((person) => (
+              <RescuedCard key={person?.id} rescued={person} />
             ))}
           </VStack>
         </Container>

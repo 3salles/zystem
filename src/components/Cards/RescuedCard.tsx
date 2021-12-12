@@ -1,10 +1,10 @@
 import { Badge, Box, Flex, Tag, Text } from '@chakra-ui/react'
 import React from 'react'
 import { formatHealth } from '../../helpers/formatHealth'
-import { Rescued } from '../../models'
+import { Person } from '../../models'
 
 interface RescuedCardProps {
-  rescued: Rescued
+  rescued: Person
 }
 
 export const RescuedCard = ({ rescued }: RescuedCardProps) => {
