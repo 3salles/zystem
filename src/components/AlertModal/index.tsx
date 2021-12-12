@@ -11,6 +11,7 @@ import {
   useDisclosure,
   Button,
   Text,
+  useToast,
 } from '@chakra-ui/react'
 
 import { MdDelete } from 'react-icons/md'
@@ -22,8 +23,27 @@ interface AlertModalProps {
 }
 
 export const AlertModal = ({ id, name }: AlertModalProps) => {
+  const toast = useToast()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { deleteActivity } = useForm()
+
+  const handleOnDeleteAction = (id: number | undefined) => {
+    try {
+      deleteActivity(id)
+      toast({
+        title: 'Operação feita com sucesso!',
+        status: 'success',
+        isClosable: false,
+      })
+    } catch (error) {
+      toast({
+        title: 'Erro ao realizar esta operação!',
+        description: 'Por favor, tente mais tarde',
+        status: 'error',
+        isClosable: false,
+      })
+    }
+  }
 
   return (
     <>
@@ -55,7 +75,7 @@ export const AlertModal = ({ id, name }: AlertModalProps) => {
             <Button colorScheme="violet" mr={3} onClick={onClose}>
               NÃO
             </Button>
-            <Button variant="outline" onClick={() => deleteActivity(id)}>
+            <Button variant="outline" onClick={() => handleOnDeleteAction(id)}>
               SIM
             </Button>
           </ModalFooter>
