@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useEffect } from 'react'
 import {
   Box,
   Container,
@@ -13,16 +13,11 @@ import { AppLayout } from '../../layouts/AppLayout'
 import { cardContent } from '../../utils/cardsContent'
 import { NavigationCard } from '../../components/Cards/NavigationCard'
 import { RescuedCard } from '../../components/Cards/RescuedCard'
-
-import rescued from '../../utils/rescued.json'
-import { Rescued } from '../../models'
-
-interface CustomRescued extends Rescued {
-  campColor: string
-}
+import { useForm } from '../../hooks/useForm'
 
 export const Home = () => {
-  const data = rescued as CustomRescued[]
+  const { rescued } = useForm()
+  console.log(rescued)
   return (
     <AppLayout>
       <Box as="section" w="100%" p="4" maxW={1480}>
@@ -77,7 +72,7 @@ export const Home = () => {
             Resgatados recentemente
           </Heading>
           <VStack w="100%" spacing={4}>
-            {data?.map((rescued) => (
+            {rescued?.map((rescued) => (
               <RescuedCard key={rescued.id} rescued={rescued} />
             ))}
           </VStack>

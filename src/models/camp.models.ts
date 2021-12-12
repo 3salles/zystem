@@ -10,4 +10,5 @@ export interface Camp {
   activities?: Activity[] | null
   color?: string
   totalInfected: number
+  createdAt: string
 }

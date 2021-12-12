@@ -1,33 +1,21 @@
 import React from 'react'
 
-import {
-  Tbody,
-  Tr,
-  Td,
-  Flex,
-  IconButton,
-  useDisclosure,
-} from '@chakra-ui/react'
+import { Tbody, Tr, Td, Flex, IconButton } from '@chakra-ui/react'
 
 import { MdModeEdit } from 'react-icons/md'
-import { Activity } from '../../models'
-import { DrawerForm } from '../../components/DrawerForm'
 import { AlertModal } from '../../components/AlertModal'
+import { useForm } from '../../hooks/useForm'
 
-interface ActivitiesTableProps {
-  data: Activity[]
-}
-
-export const ActivitiesTable = ({ data }: ActivitiesTableProps) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+export const ActivitiesTable = () => {
+  const { activities, onOpenDrawer } = useForm()
 
   return (
     <>
       <Tbody>
-        {data?.map((item) => (
-          <Tr key={item?.id}>
-            <Td>{item?.name}</Td>
-            <Td> {item?.description}</Td>
+        {activities?.map((activity) => (
+          <Tr key={activity?.id}>
+            <Td>{activity?.name}</Td>
+            <Td> {activity?.description}</Td>
 
             <Td>
               <Flex justify={'center'}>
@@ -39,20 +27,17 @@ export const ActivitiesTable = ({ data }: ActivitiesTableProps) => {
                   icon={<MdModeEdit />}
                   _hover={{ bg: 'blue', color: 'white' }}
                   fontSize={'2xl'}
-                  onClick={onOpen}
+                  onClick={() => onOpenDrawer('activity', 'Editar atividade')}
                 />
-                <AlertModal />
+                <AlertModal
+                  id={activity?.id}
+                  name={`Atividade ${activity?.name}`}
+                />
               </Flex>
             </Td>
           </Tr>
         ))}
       </Tbody>
-      <DrawerForm
-        isOpen={isOpen}
-        onClose={onClose}
-        typeForm="activity"
-        title="Editar atividade"
-      />
     </>
   )
 }

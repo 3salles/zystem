@@ -1,3 +1,5 @@
+import { Camp } from "."
+
 export type Blood = 'AB+' | 'AB-' | 'A+' | 'A-' | 'B+' | 'B-' | 'O+' | '0-'
 export type HealthStatus = 'healthy' | 'infected'
 
@@ -11,6 +13,7 @@ export interface Rescued {
   healthStatus: HealthStatus
   invalid: boolean
   observation?: string
-  camp: string
+  camp: Camp
   activity: string
+  createdAt: string
 }

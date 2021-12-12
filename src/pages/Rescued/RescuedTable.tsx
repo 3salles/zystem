@@ -1,43 +1,29 @@
 import React from 'react'
 
-import {
-  Tbody,
-  Tr,
-  Td,
-  Flex,
-  IconButton,
-  Tag,
-  Badge,
-  useDisclosure,
-} from '@chakra-ui/react'
+import { Tbody, Tr, Td, Flex, IconButton, Tag, Badge } from '@chakra-ui/react'
 
 import { MdModeEdit } from 'react-icons/md'
-import { Rescued } from '../../models'
+
 import { formatHealth } from '../../helpers/formatHealth'
-import { DrawerForm } from '../../components/DrawerForm'
 import { AlertModal } from '../../components/AlertModal'
+import { useForm } from '../../hooks/useForm'
 
-export interface RescuedCard extends Rescued {
-  campColor: string
-}
-
-interface RescuedTableProps {
-  data: RescuedCard[]
-}
-
-export const RescuedTable = ({ data }: RescuedTableProps) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+export const RescuedTable = () => {
+  const { onOpenDrawer, rescued } = useForm()
 
   return (
     <>
       <Tbody>
-        {data?.map((item) => (
+        {rescued?.map((item) => (
           <Tr key={item?.id}>
             <Td>{item?.name}</Td>
             <Td>{item?.age} anos</Td>
             <Td>
-              <Tag variant="unstyled" outline={`1px solid ${item?.campColor}`}>
-                {item?.camp}
+              <Tag
+                variant="unstyled"
+                outline={`1px solid ${item?.camp?.color}`}
+              >
+                {item?.camp?.name}
               </Tag>
             </Td>
             <Td>
@@ -60,7 +46,7 @@ export const RescuedTable = ({ data }: RescuedTableProps) => {
                   icon={<MdModeEdit />}
                   _hover={{ bg: 'blue', color: 'white' }}
                   fontSize={'2xl'}
-                  onClick={onOpen}
+                  onClick={() => onOpenDrawer('rescued', 'Editar Resgatado')}
                 />
                 <AlertModal />
               </Flex>
@@ -68,12 +54,6 @@ export const RescuedTable = ({ data }: RescuedTableProps) => {
           </Tr>
         ))}
       </Tbody>
-      <DrawerForm
-        isOpen={isOpen}
-        onClose={onClose}
-        typeForm="rescued"
-        title="Editar resgatado"
-      />
     </>
   )
 }

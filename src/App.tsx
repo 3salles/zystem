@@ -5,9 +5,14 @@ import { CustomRoutes } from './routes'
 import { theme } from './styles/theme'
 
 import '@fontsource/vt323'
+import { FormProvider } from './hooks/useForm'
 
-export const App = () => (
-  <ChakraProvider theme={theme}>
-    <CustomRoutes />
-  </ChakraProvider>
-)
+export const App = () => {
+  return (
+    <FormProvider>
+      <ChakraProvider theme={theme}>
+        <CustomRoutes />
+      </ChakraProvider>
+    </FormProvider>
+  )
+}

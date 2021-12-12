@@ -11,10 +11,12 @@ import {
   Checkbox,
 } from '@chakra-ui/react'
 import { Blood } from '../../models'
+import { useForm } from '../../hooks/useForm'
 
 const bloodOptions: Blood[] = ['AB+', 'AB-', 'A+', 'A-', 'B+', 'B-', 'O+', '0-']
 
 export const RescuedForm = () => {
+  const { activities } = useForm()
   return (
     <form
       id="drawer-form"
@@ -70,7 +72,13 @@ export const RescuedForm = () => {
         </FormControl>
         <FormControl mt="2">
           <FormLabel>Atividade</FormLabel>
-          <Select placeholder="Escolha uma atividade"></Select>
+          <Select placeholder="Escolha uma atividade">
+            {activities?.map((activity) => (
+              <option key={activity.id} value={activity?.name}>
+                {activity?.name}
+              </option>
+            ))}
+          </Select>
         </FormControl>
         <FormControl mt="2">
           <FormLabel>Observação</FormLabel>
