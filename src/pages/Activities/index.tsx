@@ -9,7 +9,11 @@ export const ActivitiesPage = () => {
   return (
     <AppLayout>
       <Box as="section" w="100%" p="4" maxW={1480}>
-        <Header title="Atividades" buttonLabel="Nova atividade" />
+        <Header
+          title="Atividades"
+          buttonLabel="Nova atividade"
+          typeForm="activity"
+        />
         <Box as="article" mt="10">
           <ListTable>
             <ActivitiesTable />

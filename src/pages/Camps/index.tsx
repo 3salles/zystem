@@ -16,7 +16,11 @@ export const CampsPage = () => {
   return (
     <AppLayout>
       <Box as="section" w="100%" p="4" maxW={1480}>
-        <Header title="Acapamentos" buttonLabel="Novo acampamento" />
+        <Header
+          title="Acapamentos"
+          buttonLabel="Novo acampamento"
+          typeForm="camp"
+        />
         <Box as="article" mt="10">
           <ListTable>
             <CampsTable data={data} />
