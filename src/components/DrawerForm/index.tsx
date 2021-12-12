@@ -22,25 +22,24 @@ interface DrawerFormProps {
   title: string
 }
 
-const formType = (type: DrawersForm) => {
-  switch (type) {
-    case 'rescued':
-      return <RescuedForm />
-    case 'camp':
-      return <CampForm />
-    case 'activity':
-      return <ActivityForm />
-    default:
-      return <></>
-  }
-}
-
 export const DrawerForm = ({
   isOpen,
   onClose,
   typeForm,
   title,
 }: DrawerFormProps) => {
+  const formType = (type: DrawersForm) => {
+    switch (type) {
+      case 'rescued':
+        return <RescuedForm />
+      case 'camp':
+        return <CampForm />
+      case 'activity':
+        return <ActivityForm onClose={onClose} />
+      default:
+        return <></>
+    }
+  }
   return (
     <Drawer isOpen={isOpen} placement="right" onClose={onClose} size={'md'}>
       <DrawerOverlay />

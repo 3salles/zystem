@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useEffect } from 'react'
 import {
   Box,
   Container,
@@ -16,6 +16,7 @@ import { RescuedCard } from '../../components/Cards/RescuedCard'
 
 import rescued from '../../utils/rescued.json'
 import { Rescued } from '../../models'
+import { api } from '../../services/api'
 
 interface CustomRescued extends Rescued {
   campColor: string
@@ -23,6 +24,7 @@ interface CustomRescued extends Rescued {
 
 export const Home = () => {
   const data = rescued as CustomRescued[]
+
   return (
     <AppLayout>
       <Box as="section" w="100%" p="4" maxW={1480}>

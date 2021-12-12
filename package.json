@@ -18,7 +18,9 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/react-router-dom": "^5.3.2",
+    "axios": "^0.24.0",
     "framer-motion": "^4.0.0",
+    "miragejs": "^0.1.43",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^3.0.0",
@@ -29,7 +31,9 @@
     "web-vitals": "^0.2.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "NODE_ENV=production react-scripts start",
+    "dev": "NODE_ENV=development react-scripts start",
+    "start:final": "REACT_APP_DEMO=true yarn start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

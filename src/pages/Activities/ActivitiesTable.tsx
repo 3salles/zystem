@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import {
   Tbody,
@@ -13,21 +13,25 @@ import { MdModeEdit } from 'react-icons/md'
 import { Activity } from '../../models'
 import { DrawerForm } from '../../components/DrawerForm'
 import { AlertModal } from '../../components/AlertModal'
+import { api } from '../../services/api'
 
-interface ActivitiesTableProps {
-  data: Activity[]
-}
-
-export const ActivitiesTable = ({ data }: ActivitiesTableProps) => {
+export const ActivitiesTable = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const [activities, setActivities] = useState<Activity[]>([])
+
+  useEffect(() => {
+    api.get('activities').then((response) => setActivities(response.data))
+  }, [])
+
+  console.log(activities)
 
   return (
     <>
       <Tbody>
-        {data?.map((item) => (
-          <Tr key={item?.id}>
-            <Td>{item?.name}</Td>
-            <Td> {item?.description}</Td>
+        {activities?.map((activity) => (
+          <Tr key={activity?.id}>
+            <Td>{activity?.name}</Td>
+            <Td> {activity?.description}</Td>
 
             <Td>
               <Flex justify={'center'}>
