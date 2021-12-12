@@ -29,6 +29,7 @@ interface FormContextData {
   createPerson: (person: PersonInput) => Promise<void>
   deleteActivity: (id: number) => Promise<void>
   deletePerson: (id: number) => Promise<void>
+  deleteCamp: (id: number) => Promise<void>
   onOpenDrawer: (type: FormsType, title: string) => void
   onCloseDrawer: () => void
 }
@@ -101,15 +102,24 @@ export const FormProvider = ({ children }: FormProviderProps) => {
 
   const deleteActivity = async (id: number) => {
     await api.delete(`api/activities/${id}`).then(() => {
-      const newActivities = activities.filter((activity) => activity?.id !== id)
+      const newActivities = activities?.filter(
+        (activity) => activity?.id !== id,
+      )
       setActivities(newActivities)
     })
   }
 
   const deletePerson = async (id: number) => {
     await api.delete(`/api/people/${id}`).then(() => {
-      const newPeople = people.filter((person) => person?.id !== id)
+      const newPeople = people?.filter((person) => person?.id !== id)
       setPeople(newPeople)
+    })
+  }
+
+  const deleteCamp = async (id: number) => {
+    await api.delete(`/api/camps/${id}`).then(() => {
+      const newCamp = camps?.filter((camp) => camp?.id !== id)
+      setCamps(newCamp)
     })
   }
 
@@ -126,6 +136,7 @@ export const FormProvider = ({ children }: FormProviderProps) => {
         deleteActivity,
         camps,
         createCamp,
+        deleteCamp,
         people,
         createPerson,
         deletePerson,

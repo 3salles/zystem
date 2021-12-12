@@ -27,7 +27,7 @@ interface AlertModalProps {
 export const AlertModal = ({ id, name, typeForm }: AlertModalProps) => {
   const toast = useToast()
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { deleteActivity, deletePerson } = useForm()
+  const { deleteActivity, deletePerson, deleteCamp } = useForm()
 
   const handleOnDeleteAction = (id: number) => {
     try {
@@ -35,6 +35,8 @@ export const AlertModal = ({ id, name, typeForm }: AlertModalProps) => {
         deleteActivity(id)
       } else if (typeForm === 'rescued') {
         deletePerson(id)
+      } else if (typeForm === 'camp') {
+        deleteCamp(id)
       }
       toast({
         title: 'Operação feita com sucesso!',

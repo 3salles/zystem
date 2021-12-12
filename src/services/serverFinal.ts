@@ -594,6 +594,12 @@ export default function ({ environment = 'development' } = {}) {
         return schema.create('camp', data)
       })
 
+      this.delete('/camps/:id', (schema, request) => {
+        let id = request?.params?.id
+        schema.db.camps.remove(id)
+        return schema
+      })
+
       this.get('/people', () => {
         return this.schema.all('person')
       })
