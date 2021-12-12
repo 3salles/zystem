@@ -1,22 +1,13 @@
 import React from 'react'
 
-import {
-  Tbody,
-  Tr,
-  Td,
-  Flex,
-  IconButton,
-  useDisclosure,
-} from '@chakra-ui/react'
+import { Tbody, Tr, Td, Flex, IconButton } from '@chakra-ui/react'
 
 import { MdModeEdit } from 'react-icons/md'
-import { DrawerForm } from '../../components/DrawerForm'
 import { AlertModal } from '../../components/AlertModal'
 import { useForm } from '../../hooks/useForm'
 
 export const ActivitiesTable = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const { activities } = useForm()
+  const { activities, onOpenDrawer } = useForm()
 
   return (
     <>
@@ -36,7 +27,7 @@ export const ActivitiesTable = () => {
                   icon={<MdModeEdit />}
                   _hover={{ bg: 'blue', color: 'white' }}
                   fontSize={'2xl'}
-                  onClick={onOpen}
+                  onClick={() => onOpenDrawer('activity', 'Editar atividade')}
                 />
                 <AlertModal id={activity?.id} name={activity.name} />
               </Flex>
@@ -44,12 +35,6 @@ export const ActivitiesTable = () => {
           </Tr>
         ))}
       </Tbody>
-      <DrawerForm
-        isOpen={isOpen}
-        onClose={onClose}
-        typeForm="activity"
-        title="Editar atividade"
-      />
     </>
   )
 }

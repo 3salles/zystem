@@ -1,27 +1,19 @@
 import React from 'react'
 
-import {
-  Tbody,
-  Tr,
-  Td,
-  Flex,
-  IconButton,
-  useDisclosure,
-  Box,
-  Badge,
-} from '@chakra-ui/react'
+import { Tbody, Tr, Td, Flex, IconButton, Box, Badge } from '@chakra-ui/react'
 
 import { MdModeEdit } from 'react-icons/md'
 import { Camp } from '../../models'
-import { DrawerForm } from '../../components/DrawerForm'
+
 import { AlertModal } from '../../components/AlertModal'
+import { useForm } from '../../hooks/useForm'
 
 interface CampsTableProps {
   data: Camp[]
 }
 
 export const CampsTable = ({ data }: CampsTableProps) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { onOpenDrawer } = useForm()
 
   return (
     <>
@@ -56,7 +48,7 @@ export const CampsTable = ({ data }: CampsTableProps) => {
                   icon={<MdModeEdit />}
                   _hover={{ bg: 'blue', color: 'white' }}
                   fontSize={'2xl'}
-                  onClick={onOpen}
+                  onClick={() => onOpenDrawer('camp', 'Editar acampamento')}
                 />
                 <AlertModal />
               </Flex>
@@ -64,12 +56,6 @@ export const CampsTable = ({ data }: CampsTableProps) => {
           </Tr>
         ))}
       </Tbody>
-      <DrawerForm
-        isOpen={isOpen}
-        onClose={onClose}
-        typeForm="camp"
-        title="Editar acampamento"
-      />
     </>
   )
 }
