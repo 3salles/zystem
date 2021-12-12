@@ -40,16 +40,16 @@ export const FormProvider = ({ children }: FormProviderProps) => {
 
   useEffect(() => {
     api
-      .get('activities')
+      .get('/api/activities')
       .then((response) => setActivities(response.data.activities))
   }, [])
 
   useEffect(() => {
-    api.get('camps').then((response) => setCamps(response.data.camps))
+    api.get('/api/camps').then((response) => setCamps(response.data.camps))
   }, [])
 
   useEffect(() => {
-    api.get('people').then((response) => setRescued(response.data.rescued))
+    api.get('/api/people').then((response) => setRescued(response.data.people))
   }, [])
 
   const onOpenDrawer = (type: DrawersForm, title: string) => {
