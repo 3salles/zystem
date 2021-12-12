@@ -17,6 +17,7 @@ interface FormProviderProps {
 interface FormContextData {
   activities: Activity[]
   createActivity: (activity: ActivityInput) => Promise<void>
+  deleteActivity: (id: number | undefined) => Promise<void>
 }
 
 const FormContext = createContext<FormContextData>({} as FormContextData)
@@ -40,8 +41,18 @@ export const FormProvider = ({ children }: FormProviderProps) => {
 
     setActivities([...activities, activity])
   }
+
+  const deleteActivity = async (id: number | undefined) => {
+    await api.delete(`/activities/${id}`).then(() => {
+      const newActivities = activities.filter((activity) => activity.id !== id)
+      setActivities(newActivities)
+    })
+  }
+
   return (
-    <FormContext.Provider value={{ activities, createActivity }}>
+    <FormContext.Provider
+      value={{ activities, createActivity, deleteActivity }}
+    >
       {children}
     </FormContext.Provider>
   )

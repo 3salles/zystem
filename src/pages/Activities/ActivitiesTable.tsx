@@ -17,7 +17,6 @@ import { useForm } from '../../hooks/useForm'
 export const ActivitiesTable = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { activities } = useForm()
-  console.log(activities)
 
   return (
     <>
@@ -39,7 +38,7 @@ export const ActivitiesTable = () => {
                   fontSize={'2xl'}
                   onClick={onOpen}
                 />
-                <AlertModal />
+                <AlertModal id={activity?.id} name={activity.name} />
               </Flex>
             </Td>
           </Tr>

@@ -14,9 +14,17 @@ import {
 } from '@chakra-ui/react'
 
 import { MdDelete } from 'react-icons/md'
+import { useForm } from '../../hooks/useForm'
 
-export const AlertModal = () => {
+interface AlertModalProps {
+  id?: number
+  name?: string
+}
+
+export const AlertModal = ({ id, name }: AlertModalProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const { deleteActivity } = useForm()
+
   return (
     <>
       <IconButton
@@ -34,10 +42,10 @@ export const AlertModal = () => {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent bg="brand.900">
-          <ModalHeader>Excluir fulano</ModalHeader>
+          <ModalHeader>Excluir {name}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Text textAlign={'center'}>Deseja realmente excluir fulano?</Text>
+            <Text textAlign={'center'}>Deseja realmente excluir {name}?</Text>
             <Text textAlign={'center'} fontWeight={'bold'}>
               Esta operação não pode ser desfeita!
             </Text>
@@ -47,7 +55,9 @@ export const AlertModal = () => {
             <Button colorScheme="violet" mr={3} onClick={onClose}>
               NÃO
             </Button>
-            <Button variant="outline">SIM</Button>
+            <Button variant="outline" onClick={() => deleteActivity(id)}>
+              SIM
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

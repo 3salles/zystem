@@ -1,4 +1,5 @@
-import { createServer, Model } from 'miragejs'
+import { createServer, Model, } from 'miragejs'
+
 
 export default function ({environment = "development"} = {}){
   return createServer({
@@ -46,6 +47,12 @@ export default function ({environment = "development"} = {}){
         const data = JSON.parse(request.requestBody)
 
         return schema.create('activity', data)
+      })
+
+      this.delete('/activities/:id', (schema, request) => {
+        let id = request.params.id
+        schema.db.activities.remove(id)
+        return schema
       })
 
 
