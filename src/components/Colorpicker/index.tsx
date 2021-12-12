@@ -16,9 +16,12 @@ import {
 
 import { colors } from '../../utils/colors'
 
-export const ColorPicker = () => {
-  const [color, setColor] = useState('gray.500')
+interface ColorPickerProps {
+  color: string
+  setColor: (color: string) => void
+}
 
+export const ColorPicker = ({ color, setColor }: ColorPickerProps) => {
   return (
     <Popover variant={'picker'}>
       <PopoverTrigger>

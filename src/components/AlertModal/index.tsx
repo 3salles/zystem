@@ -16,20 +16,28 @@ import {
 
 import { MdDelete } from 'react-icons/md'
 import { useForm } from '../../hooks/useForm'
+import { FormsType } from '../../models'
 
 interface AlertModalProps {
-  id?: number
-  name?: string
+  id: number
+  name: string
+  typeForm: FormsType
 }
 
-export const AlertModal = ({ id, name }: AlertModalProps) => {
+export const AlertModal = ({ id, name, typeForm }: AlertModalProps) => {
   const toast = useToast()
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { deleteActivity } = useForm()
+  const { deleteActivity, deletePerson, deleteCamp } = useForm()
 
-  const handleOnDeleteAction = (id: number | undefined) => {
+  const handleOnDeleteAction = (id: number) => {
     try {
-      deleteActivity(id)
+      if (typeForm === 'activity') {
+        deleteActivity(id)
+      } else if (typeForm === 'rescued') {
+        deletePerson(id)
+      } else if (typeForm === 'camp') {
+        deleteCamp(id)
+      }
       toast({
         title: 'Operação feita com sucesso!',
         status: 'success',

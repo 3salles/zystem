@@ -32,6 +32,7 @@ export const ActivitiesTable = () => {
                 <AlertModal
                   id={activity?.id}
                   name={`Atividade ${activity?.name}`}
+                  typeForm="activity"
                 />
               </Flex>
             </Td>

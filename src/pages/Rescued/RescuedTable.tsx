@@ -9,31 +9,33 @@ import { AlertModal } from '../../components/AlertModal'
 import { useForm } from '../../hooks/useForm'
 
 export const RescuedTable = () => {
-  const { onOpenDrawer, rescued } = useForm()
+  const { onOpenDrawer, people } = useForm()
 
   return (
     <>
       <Tbody>
-        {rescued?.map((item) => (
-          <Tr key={item?.id}>
-            <Td>{item?.name}</Td>
-            <Td>{item?.age} anos</Td>
+        {people?.map((person) => (
+          <Tr key={person?.id}>
+            <Td>{person?.name}</Td>
+            <Td>{person?.age} anos</Td>
             <Td>
               <Tag
                 variant="unstyled"
-                outline={`1px solid ${item?.camp?.color}`}
+                outline={`1px solid ${person?.camp?.color}`}
               >
-                {item?.camp?.name}
+                {person?.camp?.name}
               </Tag>
             </Td>
             <Td>
               <Badge
                 colorScheme={
-                  item?.healthStatus === 'healthy' ? 'yellowGreen' : 'brightRed'
+                  person?.healthStatus === 'healthy'
+                    ? 'yellowGreen'
+                    : 'brightRed'
                 }
                 color="white"
               >
-                {formatHealth(item?.healthStatus)}
+                {formatHealth(person?.healthStatus)}
               </Badge>
             </Td>
             <Td>
@@ -48,7 +50,11 @@ export const RescuedTable = () => {
                   fontSize={'2xl'}
                   onClick={() => onOpenDrawer('rescued', 'Editar Resgatado')}
                 />
-                <AlertModal />
+                <AlertModal
+                  id={person?.id}
+                  name={person?.name}
+                  typeForm="rescued"
+                />
               </Flex>
             </Td>
           </Tr>

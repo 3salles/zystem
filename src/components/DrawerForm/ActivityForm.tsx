@@ -50,7 +50,7 @@ export const ActivityForm = ({ onClose }: ActivityFormProps) => {
             placeholder="Digite nome da atividade"
             value={name}
             onChange={(event: ChangeEvent<HTMLInputElement>) =>
-              setName(event.target.value)
+              setName(event?.target?.value)
             }
           />
         </FormControl>
@@ -61,7 +61,7 @@ export const ActivityForm = ({ onClose }: ActivityFormProps) => {
             resize={'none'}
             value={description}
             onChange={(event: ChangeEvent<HTMLTextAreaElement>) =>
-              setDescription(event.target.value)
+              setDescription(event?.target?.value)
             }
           />
         </FormControl>
