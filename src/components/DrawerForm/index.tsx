@@ -14,7 +14,7 @@ import { RescuedForm } from './RescuedForm'
 import { CampForm } from './CampForm'
 import { ActivityForm } from './ActivityForm'
 
-type DrawersForm = 'camp' | 'activity' | 'rescued'
+export type DrawersForm = 'camp' | 'activity' | 'rescued'
 interface DrawerFormProps {
   isOpen: boolean
   onClose: () => void

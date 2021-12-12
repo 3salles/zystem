@@ -72,7 +72,7 @@ export const RescuedTable = ({ data }: RescuedTableProps) => {
         isOpen={isOpen}
         onClose={onClose}
         typeForm="rescued"
-        title="Novo resgatado"
+        title="Editar resgatado"
       />
     </>
   )

@@ -35,7 +35,7 @@ export const CampForm = () => {
         <Flex mt="2">
           <FormControl>
             <FormLabel>Capacidade</FormLabel>
-            <Input placeholder="Digite a idade" />
+            <Input placeholder="Digite a capacidade" />
           </FormControl>
           <FormControl ml={3}>
             <FormLabel>Cor</FormLabel>

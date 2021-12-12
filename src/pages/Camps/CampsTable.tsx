@@ -68,7 +68,7 @@ export const CampsTable = ({ data }: CampsTableProps) => {
         isOpen={isOpen}
         onClose={onClose}
         typeForm="camp"
-        title="Novo acampamento"
+        title="Editar acampamento"
       />
     </>
   )
