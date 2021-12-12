@@ -8,8 +8,10 @@ import {
   FormControl,
 } from '@chakra-ui/react'
 import { ColorPicker } from '../Colorpicker'
+import { useForm } from '../../hooks/useForm'
 
 export const CampForm = () => {
+  const { activities } = useForm()
   return (
     <form
       id="drawer-form"
@@ -30,7 +32,13 @@ export const CampForm = () => {
         </FormControl>
         <FormControl mt="2">
           <FormLabel>Atividade</FormLabel>
-          <Select placeholder="Escolha uma atividade"></Select>
+          <Select placeholder="Escolha uma atividade">
+            {activities?.map((activity) => (
+              <option key={activity.id} value={activity?.name}>
+                {activity?.name}
+              </option>
+            ))}
+          </Select>
         </FormControl>
         <Flex mt="2">
           <FormControl>
