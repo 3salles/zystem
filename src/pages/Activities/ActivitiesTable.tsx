@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import {
   Tbody,
@@ -10,19 +10,13 @@ import {
 } from '@chakra-ui/react'
 
 import { MdModeEdit } from 'react-icons/md'
-import { Activity } from '../../models'
 import { DrawerForm } from '../../components/DrawerForm'
 import { AlertModal } from '../../components/AlertModal'
-import { api } from '../../services/api'
+import { useForm } from '../../hooks/useForm'
 
 export const ActivitiesTable = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [activities, setActivities] = useState<Activity[]>([])
-
-  useEffect(() => {
-    api.get('activities').then((response) => setActivities(response.data))
-  }, [])
-
+  const { activities } = useForm()
   console.log(activities)
 
   return (

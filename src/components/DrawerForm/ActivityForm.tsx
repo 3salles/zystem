@@ -1,21 +1,23 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
 import { Input, FormLabel, Box, Textarea, FormControl } from '@chakra-ui/react'
 import { api } from '../../services/api'
+import { useForm } from '../../hooks/useForm'
 
 interface ActivityFormProps {
   onClose: () => void
 }
 
 export const ActivityForm = ({ onClose }: ActivityFormProps) => {
-  const [activityName, setActivityName] = useState('')
-  const [activityDescription, setActivityDescription] = useState('')
+  const { createActivity } = useForm()
+  const [name, setName] = useState('')
+  const [description, setDescription] = useState('')
 
-  const handleCreateNewActivity = (event: FormEvent) => {
+  const handleCreateNewActivity = async (event: FormEvent) => {
     event.preventDefault()
-    const data = { activityName, activityDescription }
-    api.post('/activities', data)
-    setActivityName('')
-    setActivityDescription('')
+    await createActivity({ name, description })
+
+    setName('')
+    setDescription('')
     onClose()
   }
   return (
@@ -25,9 +27,9 @@ export const ActivityForm = ({ onClose }: ActivityFormProps) => {
           <FormLabel>Nome da atividade</FormLabel>
           <Input
             placeholder="Digite nome da atividade"
-            value={activityName}
+            value={name}
             onChange={(event: ChangeEvent<HTMLInputElement>) =>
-              setActivityName(event.target.value)
+              setName(event.target.value)
             }
           />
         </FormControl>
@@ -36,9 +38,9 @@ export const ActivityForm = ({ onClose }: ActivityFormProps) => {
           <Textarea
             placeholder="Digite descrição da atividade"
             resize={'none'}
-            value={activityDescription}
+            value={description}
             onChange={(event: ChangeEvent<HTMLTextAreaElement>) =>
-              setActivityDescription(event.target.value)
+              setDescription(event.target.value)
             }
           />
         </FormControl>
