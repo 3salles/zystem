@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Heading, Box, Flex, Button, IconButton } from '@chakra-ui/react'
 import { FaPlus, FaArrowLeft } from 'react-icons/fa'
+import { DrawersForm } from '../DrawerForm'
 
 interface HeaderProps {
   title: string

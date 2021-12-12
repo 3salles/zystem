@@ -51,7 +51,7 @@ export const ActivitiesTable = ({ data }: ActivitiesTableProps) => {
         isOpen={isOpen}
         onClose={onClose}
         typeForm="activity"
-        title="Nova atividade"
+        title="Editar atividade"
       />
     </>
   )
