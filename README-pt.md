@@ -7,31 +7,32 @@
 </p>
 
 <p align="center">
-    This website was created to a Nextar job test
+    Este site foi criado para o teste de Front End da Nextar
     <br />
     <br />
-    <a href="README.md">🇺🇸English</a>
+    <a href="README.md">🇺🇸Inglês</a>
     ·
-    <a href="README-pt.md">🇧🇷Portuguese</a>
+    <a href="README-pt.md">🇧🇷Português</a>
   </p>
 </p>
 
 <!-- TABLE OF CONTENTS -->
 ## 🗂 Table of Contents
 
-* [About the Project](#book-about-the-project)
-  * [Technologies](#computer-technologies)
-* [Installation](#bricks-installation)
-  * [Prerequisites](#construction-prerequisites)
+* [Sobre o projeto](#book-sobre-o-projeto)
+  * [Tecnologias](#computer-tecnologias)
+* [Instalação](#bricks-instalação)
+  * [Pré-requisitos](#construction-pre-requisitos)
   * [Front-end](#lipstick-front-end)
-    * [Installing Dependencies](#construction-installing-dependencies)
-    * [Running Front-end](#arrow_forward-running-front-end)
-* [License](#page_facing_up-license)
-* [Authors](#woman_technologist-author)
+    * [Instalando dependências](#construction-instalando-dependencias)
+    * [Rodando Front-end](#arrow_forward-rodando-front-end)
+* [Licença](#page_facing_up-licença)
+* [Autora](#woman_technologist-autora)
 
-## :book: About The Project
+## :book: Sobre o projeto
 
-It was proposed to create a system form management during a zombie apocalipse.
+Foi proposto a criação de um sistema durante um apocalipse zumbi.
+
 
 * Screenshots
 
@@ -40,9 +41,9 @@ It was proposed to create a system form management during a zombie apocalipse.
 
 <img src='https://user-images.githubusercontent.com/62452619/145735037-7719ce26-c558-46a5-b158-6d2156bfe9a0.png' alt='New rescued person' width='50%' />
 
-This project use an API made with Miragejs, it is used to mock data and do tests, so it is not possible storage its data between pages.
+Este projeto usa uma API criada com Miragejs, usada para  mockar dados e fazer testes, mas não é possível armazenar os dados entre as páginas.
 
-### :computer: Technologies
+### :computer: Tecnologias
 
 * [TypeScript](https://www.typescriptlang.org)
 * [React.js](https://reactjs.org/docs/getting-started.html)
@@ -50,49 +51,49 @@ This project use an API made with Miragejs, it is used to mock data and do tests
 * [Axios](https://axios-http.com/docs/intro)
 * [MirageJS](https://miragejs.com)
 
-## :bricks: Installation
+## :bricks: Instalação
 
-This project use [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com), you will need them to build its dependencies.
+Este projeto usa [Node.js](https://nodejs.org/en/) e[Yarn](https://yarnpkg.com), você precisará deles para instalar as dependências.
 
-### :construction: Prerequisites
+### :construction: Pré-requisitos
 
-Clone this project repository:
+Clone este repositório:
 ```bash
 
 $ git clone https://github.com/3salles/zystem.git
 
-# Enter in `zystem` folder:
+# Entre na pasta `zystem`:
 
 $ cd zystem
 ```
 
-🚨 If you don't have git in your machine, you can install it [here](https://git-scm.com/downloads).
+🚨 Se você não possui git instalado em sua máquina, você pode instalá-lo [aqui](https://git-scm.com/downloads).
 
 ## :lipstick: Front-end
 
-### :construction: Installing Dependencies
+### :construction: Instalando dependências
 
-In zystem folder, install dependencies by the following command:
+Na pasta zystem, instale as dependências pelo seguinte comando:
 
 ```bash
 $ yarn install
 ```
 
-### :arrow_forward: Running Front-end
+### :arrow_forward: Rodando Front-end
 
-Run the following command to see the application:
+Rode o seguinte comando para ver a aplicação:
 
 ```bash
 $ yarn start
 ```
 
-The application will be available on `http://localhost:3000`.
+Aplicação estará disponível em  `http://localhost:3000`.
 
-## :page_facing_up: License
+## :page_facing_up: Licença
 
-This project uses [MIT](https://github.com/3salles/user-crud/blob/main/LICENSE) license.
+Este projeto usa a licença [MIT](https://github.com/3salles/user-crud/blob/main/LICENSE).
 
-## :woman_technologist: Author
+## :woman_technologist: Autora
 
 <p align="center">
   <a href="https://github.com/3salles"><img src="https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/3salles" alt="Github" /></a>
